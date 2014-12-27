@@ -1,7 +1,17 @@
 <h1>Look at all the awesome problems we have</h1>
-<% @problems.each do |problem| %>
-    <%= link_to problem_path(problem) %>
-	<p><%= problem.name %> </p>
-	<p><%= problem.description %> </p>
+<div class="container">
+    <% @problems.each do |problem| %>
+	
+	<div class="row">
+	    <div class="col-sm-6">
+		<%= link_to problem_path(problem) do %>
+		    <%= problem.name %> 
+		<% end %>
+	    </div>
+	    <div class="col-sm-6">
+		<%= problem.description %> 
+	    </div>
+	</div>
+	
     <% end %>
-
+</div>    

@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
   root 'home#welcome'
 
-  get '/problems', to: 'problem#menu', as: 'problems'
-  get '/problems/:id', to: 'problem#problem'
+  get '/problems', to: 'problem#menu'
+  get '/problems/:id', to: 'problem#problem', as: 'problem'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

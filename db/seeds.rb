@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+problems = [
+            {
+              :name => "Merge two lists",
+              :description => "Given two merged linked lists, write a function to merge them"
+            }
+
+]
+
+problems.each do |problem|
+  Problem.create!(problem)
+end
