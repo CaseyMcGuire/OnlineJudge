@@ -37,6 +37,7 @@ gem 'spring',        group: :development
 
 group :test, :development do
   gem 'sqlite3'
+  gem 'annotate', '~> 2.6.5'
 end
 
 group :production do

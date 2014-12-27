@@ -1,0 +1,5 @@
+<h1>Look at all the awesome problems we have</h1>
+<% @problems.each do |problem| %>
+    <%= link_to problem_path(problem) do %>
+	<%= problem%>
+    <% end %>
