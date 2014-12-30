@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'home#welcome'
 
   get '/problems', to: 'problem#menu'
-  get '/problems/:id', to: 'problem#problem', as: 'problem'
+  get '/problems/:id', to: 'problem#show', as: 'problem'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

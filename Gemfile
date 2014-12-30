@@ -9,6 +9,12 @@ gem 'bootstrap-sass', '~> 3.3.1'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
+gem 'ace-rails-ap'#ace editor
+#//= require ace/ace
+#// require ace/worker-html
+#to include a theme or mode but
+#//= require ace/theme-sometheme
+#//= require ace/mode-somemode
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
