@@ -1,3 +1,5 @@
 <h1>Welcome to Casey's super awesome coding website.</h1>
-<%= @user.email %>
+<% if @user != nil %>
+    <%= @user.email %>
+<% end %>
 <%= link_to 'problems', problems_path %>

@@ -13,11 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require ace/ace
 
-
-//$(document).ready(function(){
-   // var editor = ace.edit("editor");
-   // editor.setTheme("ace/theme/monokai");
-   // editor.getSession().setMode("ace/mode/ruby");
-
-//});
