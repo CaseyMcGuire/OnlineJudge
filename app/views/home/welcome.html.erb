@@ -1,5 +1,12 @@
-<h1>Welcome to Casey's super awesome coding website.</h1>
-<% if @user != nil %>
-    <%= @user.email %>
-<% end %>
-<%= link_to 'problems', problems_path %>
+<div class="container">
+    <div class="jumbotron">
+	<h1>Welcome to Casey's super awesome coding website.</h1>
+	<h2>Here, the only hope of humanity toils in obscurity</h2>
+	<% if @user != nil %>
+	    <%= @user.email %>
+	<% end %>
+	<%= link_to problems_path do %>
+	<button type="button" class="btn btn-success btn-lg"> Problems</button>
+	<% end %>
+    </div>
+</div>

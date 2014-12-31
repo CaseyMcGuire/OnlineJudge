@@ -15,7 +15,15 @@
 		<% end %>
 	    </div>
 	<% else %>
-	    You're signed in!
+	    
+	    <div class="navbar-right">
+		<%= current_user.email %>	
+		<%= link_to destroy_user_session_path, :method => :delete do %>
+		    <button type="button" class="btn btn-danger">Sign Out</button>
+		<% end %>
+		
+	    </div>
+	   
 	<% end %>
     </div>
 </nav>
