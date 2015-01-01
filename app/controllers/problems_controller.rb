@@ -1,4 +1,5 @@
 class ProblemsController < ApplicationController
+ # respond_to :html, :json, :js
  # layout "problem"
   #show all problems
   def menu
@@ -22,7 +23,13 @@ class ProblemsController < ApplicationController
   #POST evaluate/:id
   def evaluate
     puts params[:text]
-    redirect_to problem_path
+    @problem = Problem.find(params[:id])
+    respond_to do |format|
+      format.html { redirect_to problem_path }
+      format.js
+      format.json { render json: @problem}
+    end
+    # redirect_to problem_path
    
   end
 
