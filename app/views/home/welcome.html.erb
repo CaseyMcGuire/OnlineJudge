@@ -5,8 +5,8 @@
 	<% if @user != nil %>
 	    <%= @user.email %>
 	<% end %>
-	<%= link_to problems_path do %>
-	<button type="button" class="btn btn-success btn-lg"> Problems</button>
+	<%= link_to problems_path, :class => "btn btn-success btn-lg" do %>
+	    Problems
 	<% end %>
     </div>
 </div>

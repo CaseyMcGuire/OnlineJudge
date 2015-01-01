@@ -1,18 +1,21 @@
 
 
 <div class="jumbotron">
+    <h1> <%= @problem.name%></h1>
+    <h2>    <%= @problem.description%></h2>
     <div id="editor">
-class Solution{
-  public static void main(String[] args){
-	System.out.println("Hello world");
-  }
-}
+
     </div>
+
+
+    <%= form_tag(evaluate_path, :method => "post") do %>
+	<%= text_area_tag "textarea", :text %>
+	<%= submit_tag("Submit", :class => "btn btn-primary #{@should_enable}", :id => "submit_button")%>
+    <% end  %>
     
+   
+
     
-    <script>
-     var editor = ace.edit("editor");
-     editor.setTheme("ace/theme/monokai");
-    editor.getSession().setMode("ace/mode/java");
-    </script>
+
+  
 </div>

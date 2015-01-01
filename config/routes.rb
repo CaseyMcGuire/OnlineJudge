@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get '/problems', to: 'problems#menu'
   get '/problems/:id', to: 'problems#show', as: 'problem'
+  post '/evaluate/:id', to: 'problems#evaluate', as: 'evaluate'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

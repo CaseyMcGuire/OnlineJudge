@@ -2,9 +2,13 @@
 <html>
     <head>
 	<title>Cs440Project</title>
-		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %> 
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %> 
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
-	<!-- <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js'%>	-->
+	
+	
+	<%= javascript_include_tag params[:controller], :media => "all" if javascript_exists?(params[:controller]) %>
+	
+
 	<%= csrf_meta_tags %>
     </head>
     <body>

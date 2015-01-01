@@ -6,24 +6,25 @@
     <div class="container">
 	<% if !user_signed_in? %>
 	    <div class="navbar-right">
-		<%= link_to new_user_session_path do %>
-		    <button type="button" class="btn btn-default">Log In</button>
+		<%= link_to new_user_session_path, :class => "btn btn-default" do %>
+		   Log In
 		<% end %>
 	    
-		<%= link_to new_user_registration_path do %>
-		    <button type="button" class="btn btn-primary">Sign Up</button>
+		<%= link_to new_user_registration_path, :class => "btn btn-primary" do %>
+		  Sign up
 		<% end %>
 	    </div>
 	<% else %>
 	    
 	    <div class="navbar-right">
 		<%= current_user.email %>	
-		<%= link_to destroy_user_session_path, :method => :delete do %>
-		    <button type="button" class="btn btn-danger">Sign Out</button>
-		<% end %>
+		<%= link_to destroy_user_session_path, :method => :delete, :class => "btn btn-danger" do %>
+		    Sign out
+		   <% end %>
 		
 	    </div>
 	   
 	<% end %>
     </div>
 </nav>
+
