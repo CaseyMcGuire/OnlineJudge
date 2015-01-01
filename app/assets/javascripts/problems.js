@@ -26,13 +26,9 @@ $(document).ready(function(){
 	data ={};
 
 
-	
-	var that = $(this),
-	url = that.attr('action'),
-	method = that.attr('method'),
-	data = {};
-	
-	that.find('[name]').each(function(index, value) {
+	//go through form and the values of all names attributes
+	//to the data object
+	form.find('[name]').each(function(index, value) {
 	    var that = $(this),
 	    name = that.attr('name'),
 	    value = that.val();
@@ -62,8 +58,4 @@ $(document).ready(function(){
 });
 
 
-$('form').on('submit', function(){
-    console.log("hello there");
-   
-    return false;
-});
+

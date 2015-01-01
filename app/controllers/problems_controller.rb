@@ -27,7 +27,7 @@ class ProblemsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to problem_path }
       format.js
-      format.json { render json: @problem}
+      format.json { render json: params[:id]}
     end
     # redirect_to problem_path
    
