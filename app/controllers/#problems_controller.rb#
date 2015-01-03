@@ -40,6 +40,7 @@ class ProblemsController < ApplicationController
   end
 
   def check
+    
   end
 
 end

@@ -15,17 +15,17 @@ $(document).ready(function(){
     $("#submit_button").click(function() {
 	textarea.val(editor.getSession().getValue());
     });
-
+    
 
     $('form').on('submit', function(){
-
+	
 	event.preventDefault();
 	var form = $(this),
 	url = form.attr('action'),
 	method = form.attr('method'),
 	data ={};
-
-
+	
+	
 	//go through form and the values of all names attributes
 	//to the data object
 	form.find('[name]').each(function(index, value) {
@@ -37,9 +37,9 @@ $(document).ready(function(){
 	});
 	
 	console.log(data);
-
 	
-
+	
+	
 	$.post(
 	    url,
 	    data, 
@@ -48,6 +48,8 @@ $(document).ready(function(){
 		if(status === 'success'){
 		    $('#old').remove();
 		    $('#result').append("<div id='old'>" + data.text + "</div>");
+		}else{
+		    console.log("error");
 		}
 		console.log(data);
 	    }, 
