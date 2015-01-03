@@ -22,15 +22,22 @@ class ProblemsController < ApplicationController
 
   #POST evaluate/:id
   def evaluate
-    puts params[:text]
+   
     @problem = Problem.find(params[:id])
+    File.write('/Users/CaseyMcGuire/Desktop/CS440Project/testfiles/python/test.py', params[:textarea])
+    
+    result = (`python ./testfiles/python/test.py`)
+    puts result
+    my_json = { 'text' => result}
+    #save code to file
+    #run code 
+    #send code back
     respond_to do |format|
       format.html { redirect_to problem_path }
       format.js
-      format.json { render json: params[:id]}
+      format.json { render json: my_json}
+      # format.json { render html: "{\"text\": \"#{result}\"}".html_safe }
     end
-    # redirect_to problem_path
-   
   end
 
 end

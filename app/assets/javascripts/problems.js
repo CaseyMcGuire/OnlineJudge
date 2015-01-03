@@ -38,20 +38,40 @@ $(document).ready(function(){
 	
 	console.log(data);
 
+	
 
+	$.post(
+	    url,
+	    data, 
+	    function(data, status){
+		console.log(status);
+		if(status === 'success'){
+		    $('#old').remove();
+		    $('#result').append("<div id='old'>" + data.text + "</div>");
+		}
+		console.log(data);
+	    }, 
+	    "JSON");
+	
+
+
+	/*
 	$.ajax({
 	    url: url,
 	    type: method,
 	    data: data,
 	    success: function(response){
-		console.log(response);
+		console.log(response.text);
+		
 	    },
-	    error: function(data){
-		console.log("error");
+	    error: function(jqXHR, textStatus, errorThrown){
+		console.log(errorThrown);
+		console.log(textStatus);
+		console.log("error2");
 	    },
 	    dataType: 'JSON'
 	});
-	
+	*/
 	return false;
     });
     
