@@ -6,7 +6,7 @@ class CreateSubmissions < ActiveRecord::Migration
       t.integer :status_id
       t.integer :problem_id
       t.integer :user_id
-
+      t.boolean :completed, default: false, null: false
       t.timestamps
     end
   end
