@@ -29,9 +29,10 @@ class ProblemsController < ApplicationController
    # result = (`python ./testfiles/python/test.py`)
    # puts result
     
-    language = Language.find_by_name('python')
-   
-
+    #This is fine for right now...
+  #  language = Language.find_by_name('python')
+    
+  #  submission = Submission.create!(
 
     my_json = { 'text' => 'Running...'}
     #save code to file
@@ -40,7 +41,7 @@ class ProblemsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to problem_path }
       format.js
-      format.json { render json: {'text' => 'Running...'}
+      format.json { render json: {'text' => 'Running...'}}
     end
   end
 
