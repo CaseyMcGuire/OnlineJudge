@@ -45,7 +45,8 @@ class ProblemsController < ApplicationController
                                     :status => status
                                     )
 
-   
+    incompletes = Submission.where(completed: false)
+    puts incompletes
     #save code to file
     #run code 
     #send code back
