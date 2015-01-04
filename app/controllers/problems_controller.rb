@@ -30,6 +30,8 @@ class ProblemsController < ApplicationController
    # puts result
     
     #This is fine for right now...
+    puts "params"
+    puts params
     problem = Problem.find(params[:id])
     language = (Language.find_by name: 'python')
     status = (Status.find_by name: 'Running')
@@ -50,11 +52,17 @@ class ProblemsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to problem_path }
       format.js
-      format.json { render json: {'text' => 'Running...'}}
+      format.json { render json: {'text' => 'Running', 'submission' => submission}}
     end
   end
 
   def check
+    submission = Submission.find(params[:id])
+    respond_to do |format|
+      format.html { redirect_to problem_path}
+      format.json { render json: {'submission' => submission} }
+    end
+   
   end
 
 end

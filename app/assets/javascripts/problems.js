@@ -2,6 +2,7 @@
 
 var editor;
 var textarea;
+var latestResult;
 
 $(document).ready(function(){
     editor = ace.edit("editor");
@@ -20,10 +21,13 @@ $(document).ready(function(){
     $('form').on('submit', function(){
 	
 	event.preventDefault();
+	//disable our button
+	$('#submit_button').prop('disabled', true);
 	var form = $(this),
 	url = form.attr('action'),
-	method = form.attr('method'),
 	data ={};
+
+	console.log(url);
 	
 	
 	//go through form and the values of all names attributes
@@ -38,14 +42,14 @@ $(document).ready(function(){
 	
 	console.log(data);
 	
-	
-	
 	$.post(
 	    url,
 	    data, 
 	    function(data, status){
 		console.log(status);
 		if(status === 'success'){
+		    console.log(data);
+		    latestResult = data.submission;
 		    $('#old').remove();
 		    $('#result').append("<div id='old'>" + data.text + "</div>");
 		}else{
@@ -55,8 +59,7 @@ $(document).ready(function(){
 	    }, 
 	    "JSON");
 	
-
-
+	getResult();
 	/*
 	$.ajax({
 	    url: url,
@@ -78,6 +81,38 @@ $(document).ready(function(){
     });
     
 });
+
+/*
+  This method repeatedly queries the server for the result of the user's 
+  submission.
+
+*/
+function getResult(){
+
+    //This method needs to:
+    //repeatedly query the server as to the status of the user's submission
+    //perhaps pass a data object with problem and submission id
+
+    window.setInterval(function(){
+	console.log(latestResult);
+	$.get(
+	    "/check/" + latestResult.id,
+	    latestResult,
+	    function(data, status){
+		if(status === "success"){
+		    console.log("success");
+		}else{
+		    console.log("something other than success");
+		    console.log(status);
+		}
+	    },
+	    "JSON");
+
+    }, 5000);
+    
+
+}
+
 
 
 
