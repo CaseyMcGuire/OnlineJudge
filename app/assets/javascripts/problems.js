@@ -93,7 +93,7 @@ function getResult(){
     //repeatedly query the server as to the status of the user's submission
     //perhaps pass a data object with problem and submission id
 
-    window.setInterval(function(){
+    var intervalId = window.setInterval(function(){
 	console.log(latestResult);
 	$.get(
 	    "/check/" + latestResult.id,
@@ -101,6 +101,12 @@ function getResult(){
 	    function(data, status){
 		if(status === "success"){
 		    console.log("success");
+		    console.log("data");
+		    console.log(data);
+		    console.log(data.submission.completed);
+		   if(data.submission.completed === true){
+		       window.clearInterval(intervalId);
+		   }
 		}else{
 		    console.log("something other than success");
 		    console.log(status);
