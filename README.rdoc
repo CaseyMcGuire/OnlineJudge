@@ -1,28 +1,13 @@
-== README
+== Online Judge
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+In order to run, do the following:
 
-Things you may want to cover:
+bundle install
 
-* Ruby version
+rake db:migrate
 
-* System dependencies
+rake db:setup
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+rails server
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
