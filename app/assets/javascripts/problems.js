@@ -41,7 +41,8 @@ $(document).ready(function(){
 	});
 	
 	console.log(data);
-	
+
+	//Send the result back to the user's server
 	$.post(
 	    url,
 	    data, 
