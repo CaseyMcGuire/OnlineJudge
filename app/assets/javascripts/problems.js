@@ -60,24 +60,8 @@ $(document).ready(function(){
 	    }, 
 	    "JSON");
 	
-	getResult();
-	/*
-	$.ajax({
-	    url: url,
-	    type: method,
-	    data: data,
-	    success: function(response){
-		console.log(response.text);
-		
-	    },
-	    error: function(jqXHR, textStatus, errorThrown){
-		console.log(errorThrown);
-		console.log(textStatus);
-		console.log("error2");
-	    },
-	    dataType: 'JSON'
-	});
-	*/
+	queryServerForResult();
+
 	return false;
     });
     
@@ -88,7 +72,7 @@ $(document).ready(function(){
   submission.
 
 */
-function getResult(){
+function queryServerForResult(){
 
     //This method needs to:
     //repeatedly query the server as to the status of the user's submission
