@@ -22,20 +22,9 @@ class ProblemsController < ApplicationController
 
   #POST evaluate/:id
   def evaluate
-   
-   
-   # File.write('/Users/CaseyMcGuire/Desktop/CS440Project/testfiles/python/test.py', params[:textarea])
-    
-   # result = (`python ./testfiles/python/test.py`)
-   # puts result
-    
-    #This is fine for right now...
-    puts "params"
-    puts params
-    problem = Problem.find(params[:id])
+      problem = Problem.find(params[:id])
     language = (Language.find_by name: 'python')
     status = (Status.find_by name: 'Running')
-
     
     submission = Submission.create!(
                                     :code => params[:textarea],
@@ -46,10 +35,7 @@ class ProblemsController < ApplicationController
                                     )
 
     incompletes = Submission.where(completed: false)
-    puts incompletes
-    #save code to file
-    #run code 
-    #send code back
+
     respond_to do |format|
       format.html { redirect_to problem_path }
       format.js

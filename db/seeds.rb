@@ -44,3 +44,4 @@ languages = [
 languages.each do |language|
   Language.create!(language)
 end
+
