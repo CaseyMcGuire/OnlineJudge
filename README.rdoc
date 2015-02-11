@@ -1,7 +1,7 @@
 == Online Judge
 
 In order to run, do the following:
-
+```
 bundle install
 
 rake db:migrate
@@ -9,5 +9,6 @@ rake db:migrate
 rake db:setup
 
 rails server
-
+```
+Note: work in progress :)
 
