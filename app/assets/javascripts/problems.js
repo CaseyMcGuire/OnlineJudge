@@ -1,12 +1,12 @@
 //= require ace/ace
 
-var editor;
-var textarea;
-var latestResult;
+//var editor;
+//var textarea;
+//var latestResult;
 
 $(document).ready(function(){
-    editor = ace.edit("editor");
-    textarea = $('textarea[name="textarea"]').hide();
+    var editor = ace.edit("editor");
+    var textarea = $('textarea[name="textarea"]').hide();
 
     //at some point, the user should be able to 
     editor.setTheme("ace/theme/monokai");
@@ -42,7 +42,7 @@ $(document).ready(function(){
 	
 	console.log(data);
 
-	//Send the result back to the user's server
+	//Send the result back to the server
 	$.post(
 	    url,
 	    data, 
@@ -50,9 +50,15 @@ $(document).ready(function(){
 		console.log(status);
 		if(status === 'success'){
 		    console.log(data);
-		    latestResult = data.submission;
+		   // latestResult = data.submission;
 		    $('#old').remove();
 		    $('#result').append("<div id='old'>" + data.text + "</div>");
+		    queryServerForResult(data.submission, function(result){
+			console.log("We're in the callback!");
+			console.log(result);
+			$("#submit_button").prop('disabled', false);
+
+		    });
 		}else{
 		    console.log("error");
 		}
@@ -60,7 +66,7 @@ $(document).ready(function(){
 	    }, 
 	    "JSON");
 	
-	queryServerForResult();
+	//	queryServerForResult();
 
 	return false;
     });
@@ -70,27 +76,33 @@ $(document).ready(function(){
 /*
   This method repeatedly queries the server for the result of the user's 
   submission.
-
+  
+  @param {Object} An object containing the details of the submission.
+  @param {Function} Function to be called when the submission has been graded.
 */
-function queryServerForResult(){
+function queryServerForResult(submission, callback){
 
     //This method needs to:
     //repeatedly query the server as to the status of the user's submission
     //perhaps pass a data object with problem and submission id
 
     var intervalId = window.setInterval(function(){
-	console.log(latestResult);
+	
 	$.get(
-	    "/check/" + latestResult.id,
-	    latestResult,
+	    "/check/" + submission.id,
+	    submission,
 	    function(data, status){
 		if(status === "success"){
 		    console.log("success");
 		    console.log("data");
 		    console.log(data);
 		    console.log(data.submission.completed);
+		    
+		    //if the submission has been graded, stop querying the server
 		   if(data.submission.completed === true){
 		       window.clearInterval(intervalId);
+		       console.log("The submission has been graded");
+		       callback(data.submission);
 		   }
 		}else{
 		    console.log("something other than success");
