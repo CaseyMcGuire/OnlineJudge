@@ -49,7 +49,16 @@ class ProblemsController < ApplicationController
       format.html { redirect_to problem_path}
       format.json { render json: {'submission' => submission} }
     end
-   
   end
+
+  def new
+  end
+
+  def update
+  end
+
+  def destroy
+  end
+  
 
 end

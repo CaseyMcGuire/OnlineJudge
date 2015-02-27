@@ -23,4 +23,12 @@ class UserTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
+
+  #http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+  self.use_instantiated_fixtures = true
+
+  test "a newly created user is not an admin" do
+    user = users(:first_user)
+    assert_equal(false, user.admin)
+  end
 end
