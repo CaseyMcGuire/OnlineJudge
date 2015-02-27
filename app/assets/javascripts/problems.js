@@ -1,9 +1,5 @@
 //= require ace/ace
 
-//var editor;
-//var textarea;
-//var latestResult;
-
 $(document).ready(function(){
     var editor = ace.edit("editor");
     var textarea = $('textarea[name="textarea"]').hide();
@@ -50,7 +46,7 @@ $(document).ready(function(){
 		console.log(status);
 		if(status === 'success'){
 		    console.log(data);
-		   // latestResult = data.submission;
+		   
 		    $('#old').remove();
 		    $('#result').append("<div id='old'>" + data.text + "</div>");
 		    queryServerForResult(data.submission, function(result){

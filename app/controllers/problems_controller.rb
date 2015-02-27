@@ -22,7 +22,7 @@ class ProblemsController < ApplicationController
 
   #POST evaluate/:id
   def evaluate
-      problem = Problem.find(params[:id])
+    problem = Problem.find(params[:id])
     language = (Language.find_by name: 'python')
     status = (Status.find_by name: 'Running')
     
