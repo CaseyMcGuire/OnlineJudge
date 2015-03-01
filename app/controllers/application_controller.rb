@@ -6,11 +6,10 @@ class ApplicationController < ActionController::Base
   
   #helper_method :authenticate_admin
 
+  
+  #def authenticate_admin
+   # current_user.try(:admin?)
+  #end
 
-  private
-
-  def authenticate_admin
-    current_user.try(:admin?)
-  end
 
 end

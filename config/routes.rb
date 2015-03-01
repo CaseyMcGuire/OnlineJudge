@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   get '/problems/:id', to: 'problems#show', as: 'problem'
   post '/evaluate/:id', to: 'problems#evaluate', as: 'evaluate'
   get '/check/:id', to: 'problems#check', as: 'check'
-  
+  get '/edit_problem/:id', to: 'problems#update', as: 'edit_problem'
 
 end

@@ -23,11 +23,13 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-#first_user: 
- #     email: bananapants@gmail.com
-     #encrypted_password: "topsecret"
+admin: 
+  email: bananapants@gmail.com
+  admin: true
+  
    
 # column: value
 #
-#two: {}
+not_admin:
+  email: admin@gmail.com
 #  column: value

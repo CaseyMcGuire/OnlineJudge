@@ -23,16 +23,21 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
   
   #http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-  #self.use_instantiated_fixtures = true
+  self.use_instantiated_fixtures = true
 
 
   def setup
-    @user = User.new(email: "userone@gmail.com")
+    @admin = users(:admin)
+    @user = users(:not_admin)
   end
  
   
   test "a newly created user is not an admin" do
     assert_equal(false, @user.admin)
+  end
+
+  test "an admin is an admin" do
+    assert_equal(true, @admin.admin)
   end
   
 

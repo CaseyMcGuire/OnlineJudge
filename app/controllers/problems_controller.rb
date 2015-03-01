@@ -5,10 +5,10 @@ class ProblemsController < ApplicationController
 
   before_action :authenticate_user!, only: [:evaluate, :check]
   before_action :authenticate_admin, only: [:new, :update, :destroy]
+
   def menu
     @problems = Problem.all
   end
-
 
   #show a specific problem
   def show
@@ -54,6 +54,12 @@ class ProblemsController < ApplicationController
     end
   end
 
+
+  #if the user decides to change the language they're using
+  #needs to respond with json
+  def get_new_language
+  end
+
   def new
   end
 
@@ -63,7 +69,9 @@ class ProblemsController < ApplicationController
   def destroy
   end
 
-
-  
+  private
+  def authenticate_admin
+    redirect_to problems_path unless current_user.try(:admin)
+  end
 
 end
