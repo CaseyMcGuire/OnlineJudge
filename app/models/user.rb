@@ -15,17 +15,16 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime
 #  updated_at             :datetime
+#  admin                  :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, #ensures user enters a correct password and its encrypted before being saved.
-  :registerable, #allows users to register themselves, and subsequently change their login credentials
-  :recoverable, #for handling forgotten password safely
-  :rememberable, #for transparently loggin on a user, based on a cookie.
-  :trackable, #stores login information
-  :validatable #ensures that given email/name and password conform to a particular format
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable,:trackable, :validatable
 
   has_many :submissions, dependent: :destroy
+
+
+  
 end

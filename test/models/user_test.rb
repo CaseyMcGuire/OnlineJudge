@@ -15,20 +15,26 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime
 #  updated_at             :datetime
+#  admin                  :boolean          default(FALSE)
 #
 
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-
+  
   #http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-  self.use_instantiated_fixtures = true
+  #self.use_instantiated_fixtures = true
 
-  test "a newly created user is not an admin" do
-    user = users(:first_user)
-    assert_equal(false, user.admin)
+
+  def setup
+    @user = User.new(email: "userone@gmail.com")
   end
+ 
+  
+  test "a newly created user is not an admin" do
+    assert_equal(false, @user.admin)
+  end
+  
+
+  
 end
