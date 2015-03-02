@@ -24,6 +24,7 @@
 # below each fixture, per the syntax in the comments below
 #
 admin: 
+  id: 2
   email: bananapants@gmail.com
   admin: true
   
@@ -31,5 +32,6 @@ admin:
 # column: value
 #
 not_admin:
+  id: 1
   email: admin@gmail.com
 #  column: value

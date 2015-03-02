@@ -12,6 +12,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 first_problem:
+  id: 1
   name: Binary Search Tree
   description: Write a function to find the depth of a BST.
 
