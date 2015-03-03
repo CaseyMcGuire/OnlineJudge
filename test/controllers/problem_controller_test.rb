@@ -14,19 +14,26 @@ class ProblemsControllerTest < ActionController::TestCase
   end
 
   test "logged in user should be able to see problems" do
+    sign_in @user
     get :menu
     assert_response :success
   end
 
   test "nonlogged in user should not be able to submit solution" do
-    post :evaluate, {'id' => '1'}
-    assert_response :redirect
+    params = {:format => 'json', 'id' => '1'}
+    post :evaluate, params
+    assert_response :unauthorized
   end
 
   test "logged in user should be able to submit solution" do
     sign_in @user
-    post :evaluate, {'id' => '1'}
+    params = {:format => 'json', 'id' => '1'}
+    post :evaluate, params
     assert_response :success
+  end
+
+  test "nonlogged in user should not be able to check a submission" do
+    
   end
 
   test "nonadmin should not be able to edit problem" do

@@ -46,6 +46,7 @@ class ProblemsController < ApplicationController
     end
   end
 
+  #POSt check/:id
   def check
     submission = Submission.find(params[:id])
     respond_to do |format|
