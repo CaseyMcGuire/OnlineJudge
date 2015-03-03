@@ -19,17 +19,13 @@ class ProblemsControllerTest < ActionController::TestCase
   end
 
   test "nonlogged in user should not be able to submit solution" do
-    get :evaluate, {'id' => '1'}
+    post :evaluate, {'id' => '1'}
     assert_response :redirect
   end
 
   test "logged in user should be able to submit solution" do
     sign_in @user
-    puts @user
-    submission = submissions(:one)
-    submission.save
-    @problem.save
-    get :evaluate, {'id' => '1'}
+    post :evaluate, {'id' => '1'}
     assert_response :success
   end
 

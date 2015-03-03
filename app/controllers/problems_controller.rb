@@ -58,6 +58,12 @@ class ProblemsController < ApplicationController
   #if the user decides to change the language they're using
   #needs to respond with json
   def get_new_language
+    language = (Language.find_by name: params[:language])
+    #Need to get starter code as well
+    respond_to do |format|
+      format.html { redirect_to problem_path}
+      format.json {render json: {'language' => language} }
+    end
   end
 
   def new

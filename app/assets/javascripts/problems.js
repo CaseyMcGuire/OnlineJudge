@@ -47,9 +47,11 @@ $(document).ready(function(){
 		if(status === 'success'){
 		    console.log(data);
 		   
-		    $('#old').remove();
-		    $('#result').append("<div id='old'>" + data.text + "</div>");
+		    $('#old').remove();//What does this do?
+		    $('#result').append("<div class='alert alert-info' role='alert'>" + data.text + "</div>");
 		    queryServerForResult(data.submission, function(result){
+			$(".alert.alert-info").remove();
+			$('#result').append("<div class='alert alert-success' role='alert'>" + result + "</div>");
 			console.log("We're in the callback!");
 			console.log(result);
 			$("#submit_button").prop('disabled', false);
@@ -62,7 +64,7 @@ $(document).ready(function(){
 	    }, 
 	    "JSON");
 	
-	//	queryServerForResult();
+	
 
 	return false;
     });
