@@ -14,4 +14,4 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require ace/ace
-
+//= require bootstrap

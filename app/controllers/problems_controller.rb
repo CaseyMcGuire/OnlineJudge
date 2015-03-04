@@ -13,6 +13,7 @@ class ProblemsController < ApplicationController
   #show a specific problem
   def show
     @problem = Problem.find(params[:id])
+    @languages = Language.all
 
     #if the user is not signed in, we don't want
     #the submit button to be clickable
@@ -37,7 +38,7 @@ class ProblemsController < ApplicationController
                                     :status => status
                                     )
 
-    incompletes = Submission.where(completed: false)
+   # incompletes = Submission.where(completed: false)
 
     respond_to do |format|
       format.html { redirect_to problem_path }

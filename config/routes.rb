@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   post '/evaluate/:id', to: 'problems#evaluate', as: 'evaluate'
   get '/check/:id', to: 'problems#check', as: 'check'
   get '/edit_problem/:id', to: 'problems#update', as: 'edit_problem'
+  post '/get_new_language/:id', to: 'problems#get_new_language'
 
 end

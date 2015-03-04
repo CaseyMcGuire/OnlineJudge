@@ -36,7 +36,7 @@ class UserTest < ActiveSupport::TestCase
     assert_equal(false, @user.admin)
   end
 
-  test "an admin is an admin" do
+  test "an newly created admin is an admin" do
     assert_equal(true, @admin.admin)
   end
   

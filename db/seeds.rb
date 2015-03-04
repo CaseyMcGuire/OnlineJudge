@@ -9,8 +9,8 @@
 
 problems = [
             {
-              :name => "Merge two lists",
-              :description => "Given two merged linked lists, write a function to merge them"
+              :name => "Print 'Hello World'",
+              :description => "Print the string 'Hello World' to Standard Out."
             }
 
 ]
@@ -38,6 +38,9 @@ end
 languages = [
              {
                :name => "python"
+             },
+             {
+               :name => "ruby"
              }
             ]
 

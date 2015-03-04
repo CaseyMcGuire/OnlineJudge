@@ -9,8 +9,15 @@ $(document).ready(function(){
     editor.getSession().setMode("ace/mode/python");
 
 
+    //When the submit button is pressed, insert the text from the code
+    //editor into the hidden textarea so it can be posted.
     $("#submit_button").click(function() {
 	textarea.val(editor.getSession().getValue());
+    });
+
+    //TODO: This needs to make a POST request
+    $('.dropdownMenuItem').click(function(){
+	console.log("dropdownMenuItem was clicked");
     });
     
 
@@ -50,8 +57,14 @@ $(document).ready(function(){
 		    $('#old').remove();//What does this do?
 		    $('#result').append("<div class='alert alert-info' role='alert'>" + data.text + "</div>");
 		    queryServerForResult(data.submission, function(result){
-			$(".alert.alert-info").remove();
-			$('#result').append("<div class='alert alert-success' role='alert'>" + result + "</div>");
+			$('.alert.alert-info').remove();
+
+			//This is pretty brittle... probably want to change it
+			if(result.status_id === 2){
+			    $('#result').append("<div class='alert alert-success' role='alert'>PASS</div>");
+			}else{
+			    $('#result').append("<div class='alert alert-danger' role='alert'>FAIL</div>");
+			}
 			console.log("We're in the callback!");
 			console.log(result);
 			$("#submit_button").prop('disabled', false);

@@ -1,6 +1,26 @@
 
 
 <div class="jumbotron">
+
+    <div class="container">
+    <div class="dropdown">
+	<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+	    Languages
+	    <span class="caret"></span>
+	</button>
+	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+	    <% @languages.each do |language| %>
+		<li role="presentation">
+		    <a class="dropdownMenuItem" role="menuitem" tabindex="-1" href="#">
+		      <%= language.name.capitalize %>
+		    </a>
+		</li>
+	    <% end %>
+
+
+	</ul>
+    </div>
+    </div>
     <h1> <%= @problem.name%></h1>
     <h2>    <%= @problem.description%></h2>
     <div id="editor">
