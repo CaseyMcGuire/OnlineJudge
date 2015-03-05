@@ -4,7 +4,7 @@ $(document).ready(function(){
     var editor = ace.edit("editor");
     var textarea = $('textarea[name="textarea"]').hide();
 
-    //at some point, the user should be able to 
+    //at some point, the user should be able to change the language
     editor.setTheme("ace/theme/monokai");
     editor.getSession().setMode("ace/mode/python");
 
