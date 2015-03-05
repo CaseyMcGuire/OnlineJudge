@@ -11,8 +11,8 @@
 	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 	    <% @languages.each do |language| %>
 		<li role="presentation">
-		    <a class="dropdownMenuItem" role="menuitem" tabindex="-1" href="#">
-		      <%= language.name.capitalize %>
+		    <a class="dropdownMenuItem" role="menuitem" tabindex="-1">
+			<%= language.name.capitalize %>
 		    </a>
 		</li>
 	    <% end %>
