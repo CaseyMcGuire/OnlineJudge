@@ -28,7 +28,7 @@
     </div>
 
 
-    <%= form_tag(evaluate_path, :method => "post") do %>
+    <%= form_tag(new_submission_path, :method => "post") do %>
 	<%= text_area_tag "textarea", :text %>
 	<%= submit_tag("Submit", :class => "btn btn-primary #{@should_enable}", :id => "submit_button")%>
     <% end  %>
