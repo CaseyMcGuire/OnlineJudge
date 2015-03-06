@@ -19,6 +19,7 @@ class ProblemsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+=begin
   test "nonlogged in user should not be able to submit solution" do
     params = {:format => 'json', 'id' => '1'}
     post :evaluate, params
@@ -31,7 +32,7 @@ class ProblemsControllerTest < ActionController::TestCase
     post :evaluate, params
     assert_response :success
   end
-
+=end
   test "nonlogged in user should not be able to check a submission" do
     
   end

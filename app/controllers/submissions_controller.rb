@@ -1,5 +1,6 @@
 class SubmissionsController < ApplicationController
 
+ before_action :authenticate_user!, only: [:new, :check]
 
   def new
     problem = Problem.find(params[:id])
@@ -29,7 +30,7 @@ class SubmissionsController < ApplicationController
   def update
   end
 
-  #POST check/:id
+  
   def check
     submission = Submission.find(params[:id])
     respond_to do |format|
@@ -38,5 +39,9 @@ class SubmissionsController < ApplicationController
     end
   end
 
+  private
+  def authenticate_admin
+    redirect_to problems_path unless current_user.try(:admin)
+  end
   
 end
