@@ -21,5 +21,10 @@ class SubmissionsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "nonlogged in user should not be able to check a submission" do
+    
+  end
+
+
 
 end

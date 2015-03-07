@@ -16,8 +16,8 @@ $(document).ready(function(){
     });
 
     //TODO: This needs to make a POST request
-    $('.dropdownMenuItem').click(function(){
-	console.log("dropdownMenuItem was clicked");
+    $('.language_button').click(function(){
+	console.log("language_button was clicked");
     });
     
 
