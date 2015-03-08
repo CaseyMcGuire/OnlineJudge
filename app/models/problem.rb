@@ -11,5 +11,5 @@
 
 class Problem < ActiveRecord::Base
   has_many :submissions
-
+  has_many :tests
 end

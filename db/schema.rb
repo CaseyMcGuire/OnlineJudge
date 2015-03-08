@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150227072306) do
+ActiveRecord::Schema.define(version: 20150308094040) do
 
   create_table "languages", force: true do |t|
     t.string   "name"
@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(version: 20150227072306) do
     t.integer  "problem_id"
     t.integer  "user_id"
     t.boolean  "completed",   default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tests", force: true do |t|
+    t.text     "starter_code"
+    t.text     "test_code"
+    t.integer  "problem_id"
+    t.integer  "language_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

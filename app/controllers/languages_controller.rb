@@ -1,5 +1,9 @@
 class LanguagesController < ApplicationController
 
+
+  def new
+  end
+
   #if the user decides to change the language they're using
   #needs to respond with json
   def get

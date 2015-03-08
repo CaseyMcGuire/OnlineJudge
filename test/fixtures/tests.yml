@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  starter_code: MyText
+  test_code: MyText
+  problem_id: 1
+  language_id: 1
+
+two:
+  starter_code: MyText
+  test_code: MyText
+  problem_id: 1
+  language_id: 1
