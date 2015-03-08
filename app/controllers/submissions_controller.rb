@@ -20,7 +20,7 @@ class SubmissionsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to problem_path }
       format.js
-      format.json { render json: {'text' => 'Running', 'submission' => submission}}
+      format.json { render json: {'text' => 'Running', 'submission' => submission} }
     end
   end
 
@@ -29,17 +29,17 @@ class SubmissionsController < ApplicationController
             
     incomplete = Submission.where(completed: false).first
 
-    #This is okay for now.. Will need to do some error checking at some point
+    to_return = {
+      submission_id: incomplete.id,
+      code: incomplete.code,
+      language: incomplete.language.name
+    }.to_json
+    
     
     respond_to do |format|
       format.html { redirect_to root_path}
-      format.json do
-        render json: {
-          problem: incomplete.problem,
-          submission: incomplete,
-          language: incomplete.language
-        }.to_json
-      end
+      format.json {render json: to_return}
+
      # format.json { render json: incompletes, :include => :problem}
     #  format.json { render json: {'submission' => incompletes}}
     end

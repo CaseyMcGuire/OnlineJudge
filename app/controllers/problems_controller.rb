@@ -3,7 +3,7 @@ class ProblemsController < ApplicationController
  # layout "problem"
   #show all problems
 
-  before_action :authenticate_user!, only: [:evaluate, :check]
+  #  before_action :authenticate_user!, only: [:evaluate, :check]
   before_action :authenticate_admin, only: [:new, :update, :destroy]
 
   def menu
@@ -37,5 +37,4 @@ class ProblemsController < ApplicationController
   def authenticate_admin
     redirect_to problems_path unless current_user.try(:admin)
   end
-
 end
