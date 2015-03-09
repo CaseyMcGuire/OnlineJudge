@@ -2,6 +2,12 @@ class SubmissionsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :check]
 
+  def index
+  end
+
+  def show
+  end
+
   def new
     problem = Problem.find(params[:id])
     language = (Language.find_by name: 'python')
@@ -23,6 +29,7 @@ class SubmissionsController < ApplicationController
       format.json { render json: {'text' => 'Running', 'submission' => submission} }
     end
   end
+
 
   #returns *any* ungraded submission
   def get_ungraded
@@ -49,6 +56,7 @@ class SubmissionsController < ApplicationController
   def update
     puts '==================='
     puts 'HELLO WORLD'
+    puts params
     puts '==================='
   end
 

@@ -100,7 +100,7 @@ function queryServerForResult(submission, callback){
     var intervalId = window.setInterval(function(){
 	
 	$.get(
-	    "/check/" + submission.id,
+	    "/submissions/check/" + submission.id,
 	    submission,
 	    function(data, status){
 		if(status === "success"){

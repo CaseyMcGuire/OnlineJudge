@@ -6,7 +6,7 @@ class ProblemsController < ApplicationController
   #  before_action :authenticate_user!, only: [:evaluate, :check]
   before_action :authenticate_admin, only: [:new, :update, :destroy]
 
-  def menu
+  def index
     @problems = Problem.all
   end
 
@@ -25,6 +25,13 @@ class ProblemsController < ApplicationController
   end
 
   def new
+  end
+
+  def create
+  end
+
+  
+  def edit
   end
 
   def update
