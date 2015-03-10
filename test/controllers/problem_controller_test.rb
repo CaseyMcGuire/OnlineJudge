@@ -9,13 +9,13 @@ class ProblemsControllerTest < ActionController::TestCase
   end
 
   test "nonlogged in user should be able to see problems" do
-    get :menu
+    get :index
     assert_response :success
   end
 
   test "logged in user should be able to see problems" do
     sign_in @user
-    get :menu
+    get :index
     assert_response :success
   end
 

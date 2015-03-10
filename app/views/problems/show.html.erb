@@ -11,9 +11,9 @@
 	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 	    <% @languages.each do |language| %>
 		<li role="presentation">
-		    <a class="language_button" role="menuitem" tabindex="-1">
-			<%= language.name.capitalize %>
-		    </a>
+		     <a class="language_button" role="menuitem" tabindex="-1" language="<%= language.name%>">
+		 <%= language.name.capitalize %>
+		     </a>
 		</li>
 	    <% end %>
 
@@ -27,9 +27,19 @@
 
     </div>
 
+    <%= content_tag "div", id: "hidden", data: {language: @cur_language} do %>
+    <% end %>
 
-    <%= form_tag(new_submission_path, :method => "post") do %>
+    <%= content_tag "div", id: "hidden", data: {languages: @languages} do %>
+
+    <% end %>
+
+
+
+    <%= form_tag(submission_path, :method => "post") do %>
 	<%= text_area_tag "textarea", :text %>
+	<%= hidden_field_tag(:problem_id, params[:id])%>
+	
 	<%= submit_tag("Submit", :class => "btn btn-primary #{@should_enable}", :id => "submit_button")%>
     <% end  %>
     

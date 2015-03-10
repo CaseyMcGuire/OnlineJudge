@@ -9,17 +9,12 @@ Rails.application.routes.draw do
 
 
   resources :problems, :tests
-  #problem controller
-  #get '/problems', to: 'problems#index'
-  #get '/problems/:id', to: 'problems#show', as: 'problem'
-  #  post '/evaluate/:id', to: 'problems#evaluate', as: 'evaluate'
-  #  get '/check/:id', to: 'problems#check', as: 'check'
-  #get '/problems/:id/edit', to: 'problems#update', as: 'edit_problem'
-  
 
   #submissions controller
-  post '/submissions/new/:id', to: 'submissions#new', as: 'new_submission'
-  get '/submissions/check/:id', to: 'submissions#check', as: 'check'
-  get '/submissions/get_ungraded', to: 'submissions#get_ungraded'
-  post '/submissions/update/:id', to: 'submissions#update'
+  post '/submission', to: 'submissions#create'
+  get '/submission/:id/check', to: 'submissions#check', as: 'check'
+  get '/submission/get_ungraded', to: 'submissions#get_ungraded'
+  post '/submission/update/:id', to: 'submissions#update'
+
+  post 'language', to: 'languages#get'
 end

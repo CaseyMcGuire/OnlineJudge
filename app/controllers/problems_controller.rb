@@ -4,7 +4,7 @@ class ProblemsController < ApplicationController
   #show all problems
 
   #  before_action :authenticate_user!, only: [:evaluate, :check]
-  before_action :authenticate_admin, only: [:new, :update, :destroy]
+  before_action :authenticate_admin, except: [:index, :show]
 
   def index
     @problems = Problem.all
@@ -13,8 +13,9 @@ class ProblemsController < ApplicationController
   #show a specific problem
   def show
     @problem = Problem.find(params[:id])
+    @cur_language = Language.find_by name: "python"
     @languages = Language.all
-
+    
     #if the user is not signed in, we don't want
     #the submit button to be clickable
     if user_signed_in?
