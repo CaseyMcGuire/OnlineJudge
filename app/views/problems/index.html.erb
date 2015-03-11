@@ -11,10 +11,21 @@
 	    <div class="col-sm-6">
 		<%= problem.description %> 
 		<!--This needs to be fixed. -->
-		<%= link_to "edit", edit_problem_path(problem)%>
-		
+		<% if admin? %>
+		    <%= link_to "edit", edit_problem_path(problem) %>
+		    <!-- Also want to allow admin to destroy -->
+		<% end %>
 	    </div>
 	</div>
 	
     <% end %>
+<!-- Is the current user an admin? -->
+    <%=current_user.admin%>
+    
+    <% if admin? %>
+	<%= link_to new_problem_path, :class => "btn btn-default" do %>
+	    New
+	<% end %>
+    <% end %>
+    
 </div>    

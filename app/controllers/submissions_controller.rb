@@ -8,11 +8,11 @@ class SubmissionsController < ApplicationController
   def show
   end
 
-  #This needs to be changed to create...
-  def new
 
-    problem = Problem.find(params[:id])
-    language = (Language.find_by name: 'python')
+  def create
+    #puts params
+    problem = Problem.find(params[:problem_id])
+    language = (Language.find_by name: params[:language])
     status = (Status.find_by name: 'Running')
     
     submission = Submission.create!(
@@ -54,12 +54,16 @@ class SubmissionsController < ApplicationController
     end
   end
 
-  #updates the status of the submission
+  #updates the status of the submission OR allows user to save submission
   def update
     puts '==================='
     puts 'HELLO WORLD'
     puts params
     puts '==================='
+  end
+
+  #allow user to save current submission to file system
+  def save
   end
 
   #Want to check on *specific* submission

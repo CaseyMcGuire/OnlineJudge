@@ -1,0 +1,16 @@
+<h1> Hello Problem#new</h1>
+
+
+<div class="center">
+    <%= form_tag(problems_path, :method => "post") do%>
+	<%= label_tag(:name, "Problem name:")%>
+	<%= text_field_tag :name %>
+	<br />
+	<%= label_tag(:description, "Problem description: ")%>
+	<%= text_area_tag(:description)%>
+	
+	<%= submit_tag("Create", :class => "btn btn-primary")%>
+
+
+    <% end %>
+</div>

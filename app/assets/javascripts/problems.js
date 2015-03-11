@@ -16,8 +16,13 @@ $(document).ready(function(){
     });
 
     //TODO: This needs to make a POST request
+    //or maybe insert json into html?
     $('.language_button').click(function(){
 	console.log("language_button was clicked");
+	var newLanguage = this.getAttribute("language");
+	editor.getSession().setMode("ace/mode/" + newLanguage);
+	console.log(newLanguage);
+	$("#language").val(newLanguage);
     });
     
 
@@ -61,8 +66,10 @@ $(document).ready(function(){
 
 			//This is pretty brittle... probably want to change it
 			if(result.status_id === 2){
+			    //if the result was correct, put a green pass banner
 			    $('#result').append("<div class='alert alert-success' role='alert'>PASS</div>");
 			}else{
+			    //if the result was not correct, put a red FAIL banner
 			    $('#result').append("<div class='alert alert-danger' role='alert'>FAIL</div>");
 			}
 			console.log("We're in the callback!");
@@ -100,7 +107,7 @@ function queryServerForResult(submission, callback){
     var intervalId = window.setInterval(function(){
 	
 	$.get(
-	    "/submissions/check/" + submission.id,
+	    "/submission/" + submission.id +"/check",
 	    submission,
 	    function(data, status){
 		if(status === "success"){
