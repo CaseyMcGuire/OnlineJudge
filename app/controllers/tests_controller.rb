@@ -7,7 +7,7 @@ class TestsController < ApplicationController
   end
 
   def new
-    #need to get languages for given problem that don't have tests
+    
   end
   
   def create
@@ -16,6 +16,6 @@ class TestsController < ApplicationController
   def edit
   end
 
-  def create
+  def update
   end
 end
