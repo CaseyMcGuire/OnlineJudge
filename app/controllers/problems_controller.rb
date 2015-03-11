@@ -34,9 +34,21 @@ class ProblemsController < ApplicationController
 
   
   def edit
+    @cur_problem = Problem.find(params[:id])
   end
 
   def update
+    #puts "============="
+    #puts User.find(params[:id])
+    #puts "=============="
+
+    Problem.find(params[:id]).update(
+                                  :name => params[:name],
+                                  :description => params[:description]
+                                  )
+
+    flash[:notice] = "Problem successfully updated."
+    redirect_to problems_path
   end
 
   def destroy

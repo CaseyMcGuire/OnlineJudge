@@ -27,12 +27,6 @@
 
     </div>
 
-
-
-    
-
-
-
     <%= form_tag(submission_path, :method => "post") do %>
 	<%= text_area_tag "textarea", :text %>
 	<%= hidden_field_tag(:problem_id, params[:id])%>
