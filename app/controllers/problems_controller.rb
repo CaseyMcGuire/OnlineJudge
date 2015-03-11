@@ -30,6 +30,13 @@ class ProblemsController < ApplicationController
   end
 
   def create
+    Problem.new(
+                :name => params[:name],
+                :description => params[:description]
+              ).save
+    flash[:notice] = "Problem successfully created"
+    redirect_to problems_path
+    
   end
 
   
@@ -38,10 +45,7 @@ class ProblemsController < ApplicationController
   end
 
   def update
-    #puts "============="
-    #puts User.find(params[:id])
-    #puts "=============="
-
+  
     Problem.find(params[:id]).update(
                                   :name => params[:name],
                                   :description => params[:description]

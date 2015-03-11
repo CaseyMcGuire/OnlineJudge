@@ -9,4 +9,8 @@ module ApplicationHelper
       truth || File.exists?("#{script}#{extension}")
     end
   end
+
+  def admin?
+    current_user != nil && current_user.admin
+  end
 end
