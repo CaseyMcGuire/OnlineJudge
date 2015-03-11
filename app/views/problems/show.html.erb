@@ -22,24 +22,21 @@
     </div>
     </div>
     <h1> <%= @problem.name%></h1>
-    <h2>    <%= @problem.description%></h2>
+    <h2><%= @problem.description%></h2>
     <div id="editor">
 
     </div>
 
-    <%= content_tag "div", id: "hidden", data: {language: @cur_language} do %>
-    <% end %>
 
-    <%= content_tag "div", id: "hidden", data: {languages: @languages} do %>
 
-    <% end %>
+    
 
 
 
     <%= form_tag(submission_path, :method => "post") do %>
 	<%= text_area_tag "textarea", :text %>
 	<%= hidden_field_tag(:problem_id, params[:id])%>
-	
+	<%= hidden_field_tag(:language, @cur_language.name)%>
 	<%= submit_tag("Submit", :class => "btn btn-primary #{@should_enable}", :id => "submit_button")%>
     <% end  %>
     

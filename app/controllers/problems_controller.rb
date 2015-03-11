@@ -13,6 +13,7 @@ class ProblemsController < ApplicationController
   #show a specific problem
   def show
     @problem = Problem.find(params[:id])
+    #Python will be the first language a user sees for right now...
     @cur_language = Language.find_by name: "python"
     @languages = Language.all
     

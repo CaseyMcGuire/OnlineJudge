@@ -11,7 +11,7 @@ class SubmissionsController < ApplicationController
   def create
     puts params
     problem = Problem.find(params[:problem_id])
-    language = (Language.find_by name: 'python')
+    language = (Language.find_by name: params[:language])
     status = (Status.find_by name: 'Running')
     
     submission = Submission.create!(

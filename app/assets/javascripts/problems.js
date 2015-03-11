@@ -19,7 +19,10 @@ $(document).ready(function(){
     //or maybe insert json into html?
     $('.language_button').click(function(){
 	console.log("language_button was clicked");
-	console.log(this);
+	var newLanguage = this.getAttribute("language");
+	//console.log(pressedButton.getAttribute("language"));
+	console.log(newLanguage);
+	$("#language").val(newLanguage);
     });
     
 
