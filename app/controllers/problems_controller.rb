@@ -1,9 +1,5 @@
 class ProblemsController < ApplicationController
- # respond_to :html, :json, :js
- # layout "problem"
-  #show all problems
-
-  #  before_action :authenticate_user!, only: [:evaluate, :check]
+ 
   before_action :authenticate_admin, except: [:index, :show]
 
   def index

@@ -20,7 +20,7 @@ $(document).ready(function(){
     $('.language_button').click(function(){
 	console.log("language_button was clicked");
 	var newLanguage = this.getAttribute("language");
-
+	editor.getSession().setMode("ace/mode/" + newLanguage);
 	console.log(newLanguage);
 	$("#language").val(newLanguage);
     });
