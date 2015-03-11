@@ -3,11 +3,11 @@
 
 <div class="center">
     <%= form_tag(problems_path, :method => "post") do%>
-	<%= label_tag(:name, "Problem name:")%>
-	<%= text_field_tag :name %>
-	<br />
-	<%= label_tag(:description, "Problem description: ")%>
-	<%= text_area_tag(:description)%>
+	<p><%= label_tag(:name, "Problem name:")%>
+	    <%= text_field_tag :name %></p>
+	
+	<p><%= label_tag(:description, "Problem description: ")%>
+	    <%= text_area_tag(:description)%></p>
 	
 	<%= submit_tag("Create", :class => "btn btn-primary")%>
 

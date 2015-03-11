@@ -11,5 +11,8 @@ class ApplicationController < ActionController::Base
    # current_user.try(:admin?)
   #end
 
+ def authenticate_admin
+   render :status => 404
+ end
 
 end

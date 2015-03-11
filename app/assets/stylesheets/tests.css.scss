@@ -1,3 +1,15 @@
 // Place all the styles related to the Tests controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.editor { 
+    position: relative;
+    width: 500px;
+    height: 500px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0 auto;
+}
+
+
