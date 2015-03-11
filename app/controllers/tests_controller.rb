@@ -1,9 +1,15 @@
 class TestsController < ApplicationController
 
   #need to authenticate admin
-  
+  before_action :authenticate_user!  
+
   def index
-    @test = Test.all
+    @languages = Language.all
+    @problems = Problem.all
+    
+    #what percentage of a bootstrap row should each language take up
+    #plus one for problem name
+    @row_space = 12/(@languages.count + 1)
   end
 
   def new

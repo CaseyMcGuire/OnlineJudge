@@ -1,0 +1,14 @@
+<h1> Hello test#index</h1>
+
+<div class="container">
+    <table class="table table-striped">
+	<%@problems.each do |problem| %>
+	    <tr>
+		<td><%=problem.name%></td>
+		<%@languages.each do |language| %>
+		    <td><%=language.name%></td>
+		<% end %>
+	    </tr>
+	<% end %>
+    </table>
+</div>
