@@ -8,7 +8,9 @@ class SubmissionsController < ApplicationController
   def show
   end
 
+  #This needs to be changed to create...
   def new
+
     problem = Problem.find(params[:id])
     language = (Language.find_by name: 'python')
     status = (Status.find_by name: 'Running')

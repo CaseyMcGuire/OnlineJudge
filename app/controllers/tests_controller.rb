@@ -1,7 +1,6 @@
 class TestsController < ApplicationController
   
-  def new
-    
+  def new   
   end
   
   def create
