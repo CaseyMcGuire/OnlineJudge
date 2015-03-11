@@ -77,7 +77,7 @@ class SubmissionsController < ApplicationController
 
   private
   def authenticate_admin
-    redirect_to problems_path unless current_user.try(:admin)
+    authenticate_admin! {redirect_to root_path}
   end
   
 end
