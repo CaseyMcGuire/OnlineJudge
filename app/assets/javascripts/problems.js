@@ -27,6 +27,8 @@ $(document).ready(function(){
 	editor.getSession().setMode("ace/mode/" + newLanguage);
 	console.log(newLanguage);
 	$("#language").val(newLanguage);
+	$("#language-name-button").empty();
+	$("#language-name-button").append(newLanguage.charAt(0).toUpperCase() + newLanguage.slice(1));
     });
     
 
