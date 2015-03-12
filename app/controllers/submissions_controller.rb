@@ -46,7 +46,7 @@ class SubmissionsController < ApplicationController
     
     
     respond_to do |format|
-      format.html { redirect_to root_path}
+      format.html {redirect_to root_path}
       format.json {render json: to_return}
 
      # format.json { render json: incompletes, :include => :problem}

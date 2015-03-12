@@ -17,6 +17,10 @@ $(document).ready(function(){
 
     //TODO: This needs to make a POST request
     //or maybe insert json into html?
+    //if the user changes their language of choice, 
+    //starter code needs to be pulled from the server
+    //and the editor mode needs to be changed
+    //maybe an "Are you sure?" pop box as well
     $('.language_button').click(function(){
 	console.log("language_button was clicked");
 	var newLanguage = this.getAttribute("language");

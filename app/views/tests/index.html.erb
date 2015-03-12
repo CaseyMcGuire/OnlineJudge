@@ -6,7 +6,10 @@
 	    <tr>
 		<td><%=problem.name%></td>
 		<%@languages.each do |language| %>
-		    <td><%=language.name%></td>
+		    <td>
+		    <%= link_to new_test_path(:problem_id => problem.id, :language_id => language.id), method: :get do %>
+			<%=language.name%>
+		    <% end %></td> 
 		<% end %>
 	    </tr>
 	<% end %>
