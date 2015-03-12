@@ -7,11 +7,9 @@ class TestsController < ApplicationController
   def index
     @languages = Language.all
     @problems = Problem.all
-    
-    #what percentage of a bootstrap row should each language take up
-    #plus one for problem name
-    @row_space = 12/(@languages.count + 1)
   end
+
+
 
   def new
     if test_exists?
@@ -24,6 +22,8 @@ class TestsController < ApplicationController
   end
   
   def create
+    puts params
+    redirect_to tests_path
   end
 
   def edit

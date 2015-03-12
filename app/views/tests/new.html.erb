@@ -10,5 +10,11 @@
 
 </div>
 
-
+<%= form_tag(tests_path, :method => "post") do %>
+    <%= hidden_field_tag(:problem_id, params[:problem_id])%>
+    <%= hidden_field_tag(:language_id, params[:language_id])%>
+    <%= hidden_field_tag(:start_code)%>
+    <%= hidden_field_tag(:test_code)%>
+    <%= submit_tag("Create", :class => "btn btn-primary")%>
+<% end %>
 
