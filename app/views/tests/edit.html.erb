@@ -14,12 +14,12 @@
 <%= form_tag(tests_path, :method => "post") do %>
     <%= hidden_field_tag(:problem_id, params[:problem_id])%>
     <%= hidden_field_tag(:language_id, params[:language_id])%>
-    <%= hidden_field_tag(:start_code)%>
-    <%= hidden_field_tag(:test_code)%>
-    <%= submit_tag("Create", :class => "btn btn-primary")%>
+    <%= hidden_field_tag(:starter_code, "")%>
+    <%= hidden_field_tag(:test_code, "")%>
+    <%= submit_tag("Create", :id => "submit-button", :class => "btn btn-primary")%>
 <% end %>
 
 
-<input id="old-starter-code" type="hidden" value="<%=@test_code%>">
-<input id="old-test-code" type="hidden" value="<%=@starter_code%>">
-<input id="language-name" type="hidden" value="<%= @language.name %>">
+<input id="old-starter-code" type="hidden" value="<%=@test.starter_code%>">
+<input id="old-test-code" type="hidden" value="<%=@test.test_code%>">
+<input id="language-name" type="hidden" value="<%=@test.language.name %>">

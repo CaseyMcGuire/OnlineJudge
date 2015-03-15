@@ -20,7 +20,16 @@ class TestsController < ApplicationController
   end
   
   def create
-    test = Test.new(:problem_id => params[:problem_id], :language_id => params[:language_id])
+
+    puts "=================="
+    puts params
+    puts "================="
+    test = Test.new(
+                    :problem_id => params[:problem_id],
+                    :language_id => params[:language_id],
+                    :starter_code => params[:starter_code],
+                    :test_code => params[:test_code]
+                    )
     if test.save
       flash[:notice] = "Test created"
       redirect_to tests_path
@@ -35,18 +44,24 @@ class TestsController < ApplicationController
      # redirect_to new_test_path(:problem_id => params[:problem_id], :language_id => params[:language_id])
     #end
     
-    test = Test.find(params[:id])
+    @test = Test.find(params[:id])
     puts "=================="
-    puts test.starter_code
+    puts @test
+    puts @test.starter_code
     puts "=================="
-    @starter_code = test.starter_code
-    @test_code = test.test_code
-    @language = test.language
+
     
 
   end
 
   def update
+    Test.find(params[:id]).update(
+                                  :starter_code => params[:starter_code],
+                                  :test_code => params[:test_code]
+                                  )
+    flash[:notice] = "Test updated"
+    redirect_to tests_path
+    
   end
 
   private

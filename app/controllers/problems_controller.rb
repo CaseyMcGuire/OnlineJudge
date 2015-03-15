@@ -12,7 +12,17 @@ class ProblemsController < ApplicationController
     #Python will be the first language a user sees for right now...
     @cur_language = Language.find_by name: "python"
     @languages = Language.all
+       
+    @tests = Test.where("problem_id=?", @problem.id)
+    @tests.each do |t|
+      puts t
+    end
+   
+# Test.find_by :problem_id => @problem.id, :language_id => @cur_language.id
     
+    puts "================"
+    puts @test
+    puts "================"
     #if the user is not signed in, we don't want
     #the submit button to be clickable
     if user_signed_in?

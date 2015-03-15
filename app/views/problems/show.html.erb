@@ -37,6 +37,10 @@
    <div id="result">
        
    </div>
+
+   <%@tests.each do |t| %>
+       <input id="<%=t.language.name%>-starter-code" type="hidden" value="<%=t.starter_code%>">
+   <% end %>
    
    <% if admin? %>
        <%= link_to new_test_path(:problem_id => params[:id]), :class => "btn btn-default", method: :get do %>
