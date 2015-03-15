@@ -8,8 +8,6 @@
 	var startEditor = ace.edit("starter-code-editor");
 	var languageName = $("#language-name").val();
 	
-	
-	
 	testEditor.getSession().setMode("ace/mode/" + languageName);
 	startEditor.getSession().setMode("ace/mode/" + languageName);
 	
@@ -54,11 +52,6 @@
 	if(testCode !== undefined){
 	    testEditor.setValue(testCode, -1);
 	}
-	
-
-
     });
-
-    
 })(jQuery);
 

@@ -25,7 +25,7 @@ $(document).ready(function(){
 	console.log("language_button was clicked");
 	var newLanguage = this.getAttribute("language");
 	editor.getSession().setMode("ace/mode/" + newLanguage);
-	editor.setValue($('#' + newLanguage + '-starter-code').val());
+	editor.setValue($('#' + newLanguage + '-starter-code').val(), -1);
 	console.log(newLanguage);
 	$("#language").val(newLanguage);
 	$("#language-name-button").empty();

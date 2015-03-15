@@ -47,6 +47,10 @@ class TestsController < ApplicationController
     #end
     
     @test = Test.find(params[:id])
+    puts "+=+=+=+=+=+=+=+=+"
+    puts @test.starter_code
+    puts "+=+=+=+=+=+=+=+=+"
+    
     @problem = @test.problem
     @language = @test.language
     #puts "=================="
@@ -61,11 +65,13 @@ class TestsController < ApplicationController
   def update
     puts "in test update"
     puts "+++++++++++++++++"
+    puts params
+    puts "++++++++++++++++++"
     Test.find(params[:id]).update(
                                   :starter_code => params[:starter_code],
                                   :test_code => params[:test_code]
                                   )
-    puts "++++++++++++++++++"
+   
     flash[:notice] = "Test updated"
     redirect_to tests_path
     
