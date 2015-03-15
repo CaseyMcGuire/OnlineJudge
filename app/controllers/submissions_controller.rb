@@ -1,6 +1,7 @@
 class SubmissionsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :check]
+  protect_from_forgery except: :update
 
   def index
   end

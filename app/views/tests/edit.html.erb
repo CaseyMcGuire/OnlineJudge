@@ -1,6 +1,6 @@
-<h1> Hello Test#new</h1>
-<h1><%= @problem.name%></h1>
-<h1><%= @language.name.capitalize%> </h1>
+<h1>Hello Test#Edit</h1>
+
+
 <p>Write the starter code for the problem here. </p>
 <div class="editor" id="starter-code-editor">
     
@@ -16,10 +16,10 @@
     <%= hidden_field_tag(:language_id, params[:language_id])%>
     <%= hidden_field_tag(:start_code)%>
     <%= hidden_field_tag(:test_code)%>
-    <%= submit_tag("Create", :id => "create-button", :class => "btn btn-primary")%>
+    <%= submit_tag("Create", :class => "btn btn-primary")%>
 <% end %>
 
-<div class="start_code"> </div>
-<div class="test_code"> </div>
 
+<input id="old-starter-code" type="hidden" value="<%=@test_code%>">
+<input id="old-test-code" type="hidden" value="<%=@starter_code%>">
 <input id="language-name" type="hidden" value="<%= @language.name %>">

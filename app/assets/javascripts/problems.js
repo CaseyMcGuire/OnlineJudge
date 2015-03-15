@@ -7,7 +7,7 @@ $(document).ready(function(){
     //at some point, the user should be able to change the language
     editor.setTheme("ace/theme/monokai");
     editor.getSession().setMode("ace/mode/python");
-
+    
 
     //When the submit button is pressed, insert the text from the code
     //editor into the hidden textarea so it can be posted.

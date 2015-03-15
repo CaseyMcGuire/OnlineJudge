@@ -10,5 +10,8 @@ class HomeController < ApplicationController
   def faq
   end
 
+  def error
+  end
+
   
 end

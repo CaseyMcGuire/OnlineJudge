@@ -12,4 +12,5 @@
 class Problem < ActiveRecord::Base
   has_many :submissions
   has_many :tests
+  has_one :result
 end
