@@ -12,7 +12,8 @@
 </div>
 
 <%= form_tag(tests_path, :method => "post") do %>
-    <%= hidden_field_tag(:problem_id, params[:problem_id])%>
+    <!-- < %  = hidden_field_tag(:problem_id, params[:problem_id]) % >-->
+    <input id="problem_id" name="problem_id" type="hidden" value="<%=params[:problem_id]%>" />
     <%= hidden_field_tag(:language_id, params[:language_id])%>
     <%= hidden_field_tag(:starter_code, "")%>
     <%= hidden_field_tag(:test_code, "")%>

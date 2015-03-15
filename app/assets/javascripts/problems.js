@@ -7,7 +7,7 @@ $(document).ready(function(){
     //at some point, the user should be able to change the language
     editor.setTheme("ace/theme/monokai");
     editor.getSession().setMode("ace/mode/python");
-    
+    editor.setValue($('#python-starter-code').val(), -1);
 
     //When the submit button is pressed, insert the text from the code
     //editor into the hidden textarea so it can be posted.
@@ -25,10 +25,13 @@ $(document).ready(function(){
 	console.log("language_button was clicked");
 	var newLanguage = this.getAttribute("language");
 	editor.getSession().setMode("ace/mode/" + newLanguage);
+	editor.setValue($('#' + newLanguage + '-starter-code').val());
 	console.log(newLanguage);
 	$("#language").val(newLanguage);
 	$("#language-name-button").empty();
 	$("#language-name-button").append(newLanguage.charAt(0).toUpperCase() + newLanguage.slice(1));
+	
+
     });
     
 

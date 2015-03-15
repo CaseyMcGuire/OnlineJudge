@@ -20,7 +20,9 @@ class TestsController < ApplicationController
   end
   
   def create
-
+    if test_exists?
+      redirect_to tests_path
+    end
     puts "=================="
     puts params
     puts "================="
@@ -45,20 +47,25 @@ class TestsController < ApplicationController
     #end
     
     @test = Test.find(params[:id])
-    puts "=================="
-    puts @test
-    puts @test.starter_code
-    puts "=================="
+    @problem = @test.problem
+    @language = @test.language
+    #puts "=================="
+    #puts @test
+    #puts @test.starter_code
+    #puts "=================="
 
     
 
   end
 
   def update
+    puts "in test update"
+    puts "+++++++++++++++++"
     Test.find(params[:id]).update(
                                   :starter_code => params[:starter_code],
                                   :test_code => params[:test_code]
                                   )
+    puts "++++++++++++++++++"
     flash[:notice] = "Test updated"
     redirect_to tests_path
     
@@ -67,6 +74,9 @@ class TestsController < ApplicationController
   private
 
   def valid_params?
+    puts "================"
+    puts params
+    puts '================'
     if params == nil || params[:problem_id] == nil || params[:language_id] == nil
       redirect_to tests_path
     elsif !Language.exists?(:id => params[:language_id])

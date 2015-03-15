@@ -26,6 +26,7 @@
 	testEditor.getSession().on('change', function(e){
 	    $('#test_code').val(testEditor.getSession().getValue());
 	    $('#starter_code').val(startEditor.getSession().getValue());
+	    console.log($('#starter_code').val());
 	});
 
 
