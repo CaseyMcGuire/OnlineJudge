@@ -14,11 +14,6 @@ class ProblemsController < ApplicationController
     @languages = Language.all
        
     @tests = Test.where("problem_id=?", @problem.id)
-    @tests.each do |t|
-      puts t
-    end
-   
-# Test.find_by :problem_id => @problem.id, :language_id => @cur_language.id
     
     puts "================"
     puts @test

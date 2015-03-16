@@ -14,4 +14,6 @@
 class Test < ActiveRecord::Base
   belongs_to :problem
   belongs_to :language
+ # before_create :test_exists?
+  #There needs to be a validation here
 end

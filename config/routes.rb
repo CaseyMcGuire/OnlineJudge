@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/faq', to: 'home#faq'
 
 
-  resources :problems, :tests
+  resources :problems, :tests, :results
 
   #submissions controller
   post '/submission', to: 'submissions#create'

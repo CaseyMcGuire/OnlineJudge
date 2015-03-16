@@ -23,9 +23,14 @@ $(document).ready(function(){
     //maybe an "Are you sure?" pop box as well
     $('.language_button').click(function(){
 	console.log("language_button was clicked");
+
+	//grab the new language's name
 	var newLanguage = this.getAttribute("language");
 	editor.getSession().setMode("ace/mode/" + newLanguage);
+	
+	//put the appropriate starter code in the editor
 	editor.setValue($('#' + newLanguage + '-starter-code').val(), -1);
+
 	console.log(newLanguage);
 	$("#language").val(newLanguage);
 	$("#language-name-button").empty();
@@ -47,8 +52,8 @@ $(document).ready(function(){
 	console.log(url);
 	
 	
-	//go through form and the values of all names attributes
-	//to the data object
+	//go through form and put the values of all names attributes
+	//into the data object
 	form.find('[name]').each(function(index, value) {
 	    var that = $(this),
 	    name = that.attr('name'),
