@@ -6,6 +6,7 @@ class ResultsController < ApplicationController
   end
 
   def edit
+    @cur_result = Result.find(params[:id])
   end
 
   def update

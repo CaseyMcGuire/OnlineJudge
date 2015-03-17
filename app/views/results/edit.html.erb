@@ -9,7 +9,10 @@
 </div>
 
 <form action="<%=result_path%>" method="put">
-    <textarea class="hidden-textarea" id="result-textarea" name="textarea"></textarea>
-    <textarea class="hidden-textarea" id="expected-result-area"> </textarea>
+    <input name="input" type="hidden" id="result-input" value="<%= @cur_result.input %>">
+    <input name="expected_result" type="hidden" id="expected-result-input" value="<%= @cur_result.expected_result%>"> 
     <input type="submit" class="btn btn-primary">
 </form>
+
+
+

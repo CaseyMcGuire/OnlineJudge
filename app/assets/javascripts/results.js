@@ -4,6 +4,22 @@
 	var expectedResultEditor = ace.edit("expected-result-editor");
 	var inputEditor = ace.edit("input-editor");
 	
+
+
+	expectedResultEditor.getSession().on('change', function(e){
+	    $('#expected-result').val(expectedResultEditor.getSession().getValue());
+	});
+
 	
+	inputEditor.getSession().on('change', function(e){
+	    $('#input').val(inputEditor.getSession().getValue());
+	});
+
+	var expectedResult = $('#expected-result').val();
+	var input = $('input').val();
+
+	expectedResultEditor.setValue(expectedResult, -1);
+	inputEditor.setValue(input, -1);
+
     });
 })(jQuery);
