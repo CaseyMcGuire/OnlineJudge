@@ -6,10 +6,16 @@ class ResultsController < ApplicationController
   end
 
   def edit
-       
   end
 
   def update
+    Result.find(params[:id]).update(
+                                    :expected_result => params[:expected_result],
+                                    :result => params[:result]
+                                    )
+    
+    flash[:notice] = "Result successfully update."
+    redirect_to tests_path
   end
 
   def new 
@@ -19,6 +25,12 @@ class ResultsController < ApplicationController
   end
 
   def create
+    Result.new(
+               :expected_result => params[:expected_result],
+               :result => params[:result]
+               ).save
+    flash[:notice] = "Result successfully created."
+    redirect_to tests_path
   end
 
 end

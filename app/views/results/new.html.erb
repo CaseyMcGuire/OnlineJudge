@@ -1,11 +1,16 @@
 <h1>Hello Result#new </h1>
 
-<div id="editor">
+<div class="result-editor" id="expected-result-editor">
+</div>
+
+<div class="result-editor" id="input-editor">
+    
 </div>
 
 
 
 <form action="<%=results_path%>" method="post">
-    <textarea id="result-textarea" name="textarea"></textarea>
+    <textarea class="hidden-textarea" id="result-textarea" name="textarea"></textarea>
+    <textarea class="hidden-textarea" id="expected-result-area"> </textarea>
     <input type="submit" class="btn btn-primary">
 </form>

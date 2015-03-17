@@ -21,6 +21,9 @@ end
 
 statuses = [
             {
+              :name => "Pending"
+            },
+            {
               :name => "Running"
             },
             {
