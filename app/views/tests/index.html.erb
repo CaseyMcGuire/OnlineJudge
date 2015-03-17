@@ -1,15 +1,30 @@
 <h1> Hello test#index</h1>
 
 <div class="container">
-    <table class="table table-striped">
+    <table class="table table-striped table-bordered">
+	<thead class="table-header">
+	<tr>
+	    <th rowspan="2">ID</th>
+	    <th rowspan="2">Problem Name</th>
+	    <th colspan="2">Language</th>
+	    
+	    <th rowspan="2">Results </th>
+	</tr>
+	<tr>
+	    <th>Create Test</th>
+	    <th>Edit Test</th>
+	</tr>
+	</thead>
 	<%@problems.each do |problem| %>
 	    <tr>
+		<td><%=problem.id%> </td>
 		<td><%=problem.name%></td>
 		<%@languages.each do |language| %>
 		    <td>
 		    <%= link_to new_test_path(:problem_id => problem.id, :language_id => language.id), method: :get do %>
 			<%=language.name.capitalize%>
-		    <% end %></td> 
+		    <% end %>
+		    </td> 
 
 		<% end %>
 		<td> 

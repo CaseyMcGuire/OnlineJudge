@@ -1,8 +1,11 @@
 <h1>Look at all the awesome problems we have</h1>
 <div class="container">
-	<table class="table table-striped">
+	<table class="table table-striped table-bordered">
     <% @problems.each do |problem| %>
-	<tr>	    
+	<tr>	 
+	    <td>
+		<%=problem.id%>
+	    </td>
 	    <td>
 		<%= link_to problem_path(problem), method: :get do %>
 		    <%= problem.name %> 

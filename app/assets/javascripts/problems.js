@@ -23,9 +23,12 @@ $(document).ready(function(){
     //maybe an "Are you sure?" pop box as well
     $('.language_button').click(function(){
 	console.log("language_button was clicked");
-
+	
 	//grab the new language's name
 	var newLanguage = this.getAttribute("language");
+	if(!window.confirm("Are you sure? You will lose all progress")){
+	    return;
+	}
 	editor.getSession().setMode("ace/mode/" + newLanguage);
 	
 	//put the appropriate starter code in the editor

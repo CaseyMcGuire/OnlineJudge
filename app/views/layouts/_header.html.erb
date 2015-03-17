@@ -1,9 +1,18 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
    
     <%= link_to root_path, :class => "navbar-brand" do %>
 	Hello World
     <% end %>
-    <div class="container">
+    <div class="container-fluid">
+	<!--links -->
+	<ul class="nav navbar-nav">
+	    <li><%= link_to "Problems", problems_path %></li>
+	    <% if admin? %>
+		<li> <%= link_to "Tests", tests_path%></li>
+	    <% end %>
+	</ul>
+
+	<!-- end links  -->
 	<% if !user_signed_in? %>
 	    <div class="navbar-right">
 		<%= link_to new_user_session_path, :class => "btn btn-default" do %>
