@@ -15,9 +15,10 @@
 	    $('#input').val(inputEditor.getSession().getValue());
 	});
 
-	var expectedResult = $('#expected-result').val();
-	var input = $('input').val();
+	var expectedResult = $('#expected-result-input').val();
+	var input = $('#result-input').val();
 
+	
 	expectedResultEditor.setValue(expectedResult, -1);
 	inputEditor.setValue(input, -1);
 

@@ -8,11 +8,13 @@
     
 </div>
 
-<form action="<%=result_path%>" method="put">
+
+<%= form_tag result_path(@cur_result), :method => "put" do %>
     <input name="input" type="hidden" id="result-input" value="<%= @cur_result.input %>">
     <input name="expected_result" type="hidden" id="expected-result-input" value="<%= @cur_result.expected_result%>"> 
     <input type="submit" class="btn btn-primary">
-</form>
+<% end %>
+
 
 
 

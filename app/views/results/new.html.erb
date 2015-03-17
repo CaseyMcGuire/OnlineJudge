@@ -9,8 +9,11 @@
 
 
 
-<form action="<%=results_path%>" method="post">
+
+<%= form_tag results_path, :method => "post" do%>
     <input name="input" type="hidden" id="input" value="">
+    <input name="problem_id" type="hidden" value="<%=params[:problem_id]%>">
     <input name="expected_result" type="hidden" id="expected-result" value=""> 
     <input type="submit" class="btn btn-primary">
-</form>
+<% end %>
+

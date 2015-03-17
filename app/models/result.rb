@@ -12,6 +12,6 @@
 
 class Result < ActiveRecord::Base
   validates_uniqueness_of :problem_id
-  belongs_to :problem
+  belongs_to :problem 
   
 end
