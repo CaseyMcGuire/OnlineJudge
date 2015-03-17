@@ -7,6 +7,7 @@ class TestsController < ApplicationController
   def index
     @languages = Language.all
     @problems = Problem.all
+    
   end
 
   def new
