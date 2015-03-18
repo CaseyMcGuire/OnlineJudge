@@ -3,22 +3,26 @@ class ProblemsController < ApplicationController
   before_action :authenticate_admin!, except: [:index, :show]
 
   def index
-    @problems = Problem.joins(:result).where(
+    #only select problems that have both a result and starter code 
+    #in at least one language
+    @problems = Problem.where(id: Test.select("problem_id")).joins(:result)
     
   end
 
   #show a specific problem
   def show
     @problem = Problem.find(params[:id])
-    #Python will be the first language a user sees for right now...
-    @cur_language = Language.find_by name: "python"
-    @languages = Language.all
+    #should redirect here if teh user tries anything fishy
+   
+    @languages = Language.joins(test: :problem).where("problem_id = ?", params[:id])
+    @cur_language = @languages.last
+    
        
     @tests = Test.where("problem_id=?", @problem.id)
     
-    puts "================"
-    puts @test
-    puts "================"
+    #puts "================"
+    #puts @test
+    #puts "================"
     #if the user is not signed in, we don't want
     #the submit button to be clickable
     if user_signed_in?

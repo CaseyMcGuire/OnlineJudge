@@ -4,10 +4,10 @@ $(document).ready(function(){
     var editor = ace.edit("editor");
     var textarea = $('textarea[name="textarea"]').hide();
 
-    //at some point, the user should be able to change the language
+    var firstLanguage = document.getElementById('language').getAttribute('value');
     editor.setTheme("ace/theme/monokai");
-    editor.getSession().setMode("ace/mode/python");
-    editor.setValue($('#python-starter-code').val(), -1);
+    editor.getSession().setMode("ace/mode/" + firstLanguage);
+    editor.setValue($('#' + firstLanguage +'-starter-code').val(), -1);
 
     //When the submit button is pressed, insert the text from the code
     //editor into the hidden textarea so it can be posted.
