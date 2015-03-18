@@ -8,7 +8,14 @@ $(document).ready(function(){
     editor.setTheme("ace/theme/monokai");
     editor.getSession().setMode("ace/mode/" + curLanguage);
     editor.setValue($('#' + curLanguage +'-starter-code').val(), -1);
-    $('#language-selector').value = curLanguage;
+
+
+   document.getElementById('language-selector').value = capitalize(curLanguage);
+    
+    //console.log($('#language-selector').val());
+   // console.log($('#language-selector').value);
+    
+    console.log(curLanguage);
     //When the submit button is pressed, insert the text from the code
     //editor into the hidden textarea so it can be posted.
     $("#submit_button").click(function() {
@@ -20,8 +27,8 @@ $(document).ready(function(){
     $('#language-selector').click(function(){
 	console.log($(this).val());
 	if($(this).val().toLowerCase() === curLanguage ||
-	   !window.confirm("Are you sure? You will lose all progress")){ 	   
-	    $(this).value = language;//reset it to the old language
+	   !window.confirm("Are you sure? You will lose all progress")){ 	   	    document.getElementById('language-selector').value = capitalize(curLanguage);
+	    	    
 	    return;
 	}
 	
@@ -139,6 +146,9 @@ function queryServerForResult(submission, callback){
 
 }
 
-
+function capitalize(str){
+    console.log(str);
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
 
 
