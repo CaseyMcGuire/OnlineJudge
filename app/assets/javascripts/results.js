@@ -1,5 +1,6 @@
-'use strict';
 (function($){
+    'use strict';
+
     $(document).ready(function(){
 	var expectedResultEditor = ace.edit("expected-result-editor");
 	var inputEditor = ace.edit("input-editor");

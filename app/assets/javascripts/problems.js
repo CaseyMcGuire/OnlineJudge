@@ -1,45 +1,33 @@
 //= require ace/ace
-
+'use strict';
 $(document).ready(function(){
     var editor = ace.edit("editor");
     var textarea = $('textarea[name="textarea"]').hide();
 
-    var firstLanguage = document.getElementById('language').getAttribute('value');
+    var curLanguage = document.getElementById('language').getAttribute('value');
     editor.setTheme("ace/theme/monokai");
-    editor.getSession().setMode("ace/mode/" + firstLanguage);
-    editor.setValue($('#' + firstLanguage +'-starter-code').val(), -1);
-
+    editor.getSession().setMode("ace/mode/" + curLanguage);
+    editor.setValue($('#' + curLanguage +'-starter-code').val(), -1);
+    $('#language-selector').value = curLanguage;
     //When the submit button is pressed, insert the text from the code
     //editor into the hidden textarea so it can be posted.
     $("#submit_button").click(function() {
 	textarea.val(editor.getSession().getValue());
     });
 
-    //TODO: This needs to make a POST request
-    //or maybe insert json into html?
-    //if the user changes their language of choice, 
-    //starter code needs to be pulled from the server
-    //and the editor mode needs to be changed
-    //maybe an "Are you sure?" pop box as well
-    $('.language_button').click(function(){
-	console.log("language_button was clicked");
-	
-	//grab the new language's name
-	var newLanguage = this.getAttribute("language");
-	if(!window.confirm("Are you sure? You will lose all progress")){
+   
+
+    $('#language-selector').click(function(){
+	console.log($(this).val());
+	if($(this).val().toLowerCase() === curLanguage ||
+	   !window.confirm("Are you sure? You will lose all progress")){ 	   
+	    $(this).value = language;//reset it to the old language
 	    return;
 	}
-	editor.getSession().setMode("ace/mode/" + newLanguage);
 	
-	//put the appropriate starter code in the editor
-	editor.setValue($('#' + newLanguage + '-starter-code').val(), -1);
-
-	console.log(newLanguage);
-	$("#language").val(newLanguage);
-	$("#language-name-button").empty();
-	$("#language-name-button").append(newLanguage.charAt(0).toUpperCase() + newLanguage.slice(1));
-	
-
+	curLanguage = $(this).val().toLowerCase();
+	editor.getSession().setMode('ace/mode/' + curLanguage);
+	editor.setValue($('#' + curLanguage + '-starter-code').val(), -1);
     });
     
 
