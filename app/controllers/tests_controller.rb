@@ -7,7 +7,8 @@ class TestsController < ApplicationController
   def index
     @languages = Language.all
     @problems = Problem.all
-    
+
+
   end
 
   def new
@@ -96,5 +97,6 @@ class TestsController < ApplicationController
   def test_exists?
     Test.exists?(:problem_id => params[:problem_id], :language_id => params[:language_id])
   end
+
 
 end

@@ -10,7 +10,11 @@
 #
 
 class Problem < ActiveRecord::Base
-  has_many :submissions
-  has_many :tests
+  has_many :submission
+  has_many :test
   has_one :result, dependent: :destroy
+
+  def test_exists
+    Test.exists?(:problem_id)
+  end
 end

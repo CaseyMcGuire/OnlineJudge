@@ -4,15 +4,11 @@
     <table class="table table-striped table-bordered">
 	<thead class="table-header">
 	<tr>
-	    <th rowspan="2">ID</th>
-	    <th rowspan="2">Problem Name</th>
-	    <th colspan="2">Language</th>
+	    <th>ID</th>
+	    <th >Problem Name</th>
+	    <th colspan="2">Languages</th>
 	    
-	    <th rowspan="2">Results </th>
-	</tr>
-	<tr>
-	    <th>Create Test</th>
-	    <th>Edit Test</th>
+	    <th>Results </th>
 	</tr>
 	</thead>
 	<%@problems.each do |problem| %>
@@ -20,14 +16,23 @@
 		<td><%=problem.id%> </td>
 		<td><%=problem.name%></td>
 		<%@languages.each do |language| %>
-		    <td>
+		    <% if test_exists?(problem.id, language.id) %>
+			<td>
+		    <% else %>
+			<td class="danger">
+		    <% end %>
 		    <%= link_to new_test_path(:problem_id => problem.id, :language_id => language.id), method: :get do %>
 			<%=language.name.capitalize%>
+			
 		    <% end %>
 		    </td> 
 
 		<% end %>
-		<td> 
+		<% if result_exists?(problem.id) %>
+		    <td> 
+		    <% else %>
+		    <td class="danger">
+		<% end %>
 		    <%= link_to new_result_path(:problem_id => problem.id), method: :get do %>
 			Result
 		    <% end %>

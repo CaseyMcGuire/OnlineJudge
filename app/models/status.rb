@@ -9,6 +9,6 @@
 #
 
 class Status < ActiveRecord::Base
-  has_many :submissions
+  has_many :submission
   
 end

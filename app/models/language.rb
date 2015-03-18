@@ -9,6 +9,6 @@
 #
 
 class Language < ActiveRecord::Base
-  has_many :submissions
-  has_many :tests
+  has_many :submission
+  has_many :test
 end

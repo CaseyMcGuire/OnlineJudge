@@ -13,4 +13,12 @@ module ApplicationHelper
   def admin?
     current_user != nil && current_user.admin
   end
+
+  def test_exists?(problem_id, language_id)
+    Test.exists?(:problem_id => problem_id, :language_id => language_id)
+  end
+
+  def result_exists?(problem_id)
+    Result.exists?(:problem_id => problem_id)
+  end
 end

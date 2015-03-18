@@ -3,7 +3,8 @@ class ProblemsController < ApplicationController
   before_action :authenticate_admin!, except: [:index, :show]
 
   def index
-    @problems = Problem.all
+    @problems = Problem.joins(:result).where(
+    
   end
 
   #show a specific problem
