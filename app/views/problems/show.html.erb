@@ -1,17 +1,18 @@
 
 
 <div class="jumbotron">
-
-
-    <h1> <%= @problem.name%></h1>
-    <h2><%= @problem.description%></h2>
-
-    <div class="problem-controls">
-	<select id="language-selector" class="form-control">
-	    <% @languages.each do |language| %>
-		<option> <%= language.name.capitalize %></option>
-	    <% end %>
-	</select>
+    <div class="center">
+	
+	<h4> <%= @problem.name%></h4>
+	<h5><%= @problem.description%></h5>
+	
+	<div class="problem-controls">
+	    <select id="language-selector" class="form-control">
+		<% @languages.each do |language| %>
+		    <option> <%= language.name.capitalize %></option>
+		<% end %>
+	    </select>
+	</div>
     </div>
     <div id="editor">
 
@@ -28,7 +29,7 @@
        
    </div>
 
-   <%@tests.each do |t| %>
+   <% @tests.each do |t| %>
        <input id="<%=t.language.name%>-starter-code" type="hidden" value="<%=t.starter_code%>">
    <% end %>
    
