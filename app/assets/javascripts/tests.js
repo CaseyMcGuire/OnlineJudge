@@ -3,6 +3,7 @@
 (function($){
     $(document).ready(function(){
 	
+	
 
 	var testEditor = ace.edit("test-code-editor");
 	var startEditor = ace.edit("starter-code-editor");
@@ -10,7 +11,8 @@
 	
 	testEditor.getSession().setMode("ace/mode/" + languageName);
 	startEditor.getSession().setMode("ace/mode/" + languageName);
-	
+	testEditor.setTheme("ace/theme/monokai");
+	startEditor.setTheme("ace/theme/monokai");
 	
 	/*
 	$("#submit-button").click(function(){
