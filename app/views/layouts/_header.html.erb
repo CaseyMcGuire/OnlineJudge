@@ -27,7 +27,7 @@
 	<% else %>
 	    
 	    <div class="navbar-right">
-		<%= current_user.email %>	
+		  <%= current_user.email %>	
 		<%= link_to destroy_user_session_path, :method => :delete, :class => "btn btn-danger" do %>
 		    Sign out
 		   <% end %>

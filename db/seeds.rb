@@ -40,10 +40,34 @@ end
 
 languages = [
              {
+               :name => "java"
+             },
+             {
                :name => "python"
              },
              {
                :name => "ruby"
+             },
+             {
+               :name => "haskell"
+             },
+             {
+               :name => "clojure"
+             },
+             {
+               :name => "scala"
+             },
+             {
+               :name => "erlang"
+             },
+             {
+               :name => "ocaml"
+             },
+             {
+               :name => "go"
+             },
+             {
+               :name => "prolog"
              }
             ]
 
