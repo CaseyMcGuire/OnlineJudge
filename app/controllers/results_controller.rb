@@ -6,13 +6,20 @@ class ResultsController < ApplicationController
   end
 
   def edit
+    
     @cur_result = Result.find(params[:id])
+    @cur_problem = @cur_result.problem
   end
 
   def update
+    puts "================="
+    puts params
+    puts "================"
     Result.find(params[:id]).update(
                                     :expected_result => params[:expected_result],
-                                    :input => params[:input]
+                                    :input => params[:input],
+                                    :sample_input => params[:sample_input],
+                                    :sample_output => params[:sample_output]
                                     )
     
     flash[:notice] = "Result successfully update."
@@ -32,7 +39,9 @@ class ResultsController < ApplicationController
     Result.new(
               :problem_id => params[:problem_id],
                :expected_result => params[:expected_result],
-               :input => params[:input]
+               :input => params[:input],
+               :sample_input => params[:sample_input],
+               :sample_output => params[:sample_output]
                ).save
     flash[:notice] = "Result successfully created."
     redirect_to tests_path

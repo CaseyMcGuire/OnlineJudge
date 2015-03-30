@@ -63,7 +63,7 @@ class SubmissionsController < ApplicationController
     puts params
     puts '==================='
     respond_to do |format|
-      format.json {render json: {roger:"roger"}.to_json }
+      format.json {render json: {status:"OK"}.to_json }
     end
   end
 

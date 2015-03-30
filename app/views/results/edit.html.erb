@@ -1,17 +1,27 @@
 <h1>Hello results#edit </h1>
+<h2>The problem we are currently editing is <%=@cur_problem.name%></h2>
 
 
+<h4>This is where the expected output of standard out will be. The user will not see this.</h4>
 <div class="result-editor" id="expected-result-editor">
 </div>
 
+<h4>This is where the input to standard in will go in the problem is a contest problem. The user will not see this.</h4>
 <div class="result-editor" id="input-editor">
     
 </div>
+
+<h4>This is where sample input will go. The user will see this.</h4>
+<div class="result-editor" id="sample-input-editor"></div>
+<h4>This is where sample output will go. The user will see this.</h4>
+<div class="result-editor" id="sample-output-editor"></div>
 
 
 <%= form_tag result_path(@cur_result), :method => "put" do %>
     <input name="input" type="hidden" id="result-input" value="<%= @cur_result.input %>">
     <input name="expected_result" type="hidden" id="expected-result-input" value="<%= @cur_result.expected_result%>"> 
+    <input name="sample_input" type="hidden" id="sample_input" value="<%=@cur_result.sample_input%>">
+    <input name="sample_output" type="hidden" id="sample_output" value="<%=@cur_result.sample_output%>">
     <input type="submit" class="btn btn-primary">
 <% end %>
 
