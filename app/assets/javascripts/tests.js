@@ -14,6 +14,8 @@
 	testEditor.setTheme("ace/theme/monokai");
 	startEditor.setTheme("ace/theme/monokai");
 	
+	testEditor.setFontSize(18);
+	startEditor.setFontSize(18);
 	/*
 	$("#submit-button").click(function(){
 	    $("#start_code").val(startEditor.getSession().getValue());

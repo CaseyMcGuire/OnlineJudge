@@ -42,7 +42,8 @@ class SubmissionsController < ApplicationController
     to_return = {
       submission_id: incomplete.id,
       code: incomplete.code,
-      language: incomplete.language.name
+      language: incomplete.language.name,
+      test_code: Test.where(language_id: incomplete.language.id, problem_id: incomplete.problem.id)[0].test_code
     }.to_json
     
     
@@ -61,6 +62,9 @@ class SubmissionsController < ApplicationController
     puts 'HELLO WORLD'
     puts params
     puts '==================='
+    respond_to do |format|
+      format.json {render json: {roger:"roger"}.to_json }
+    end
   end
 
   #allow user to save current submission to file system

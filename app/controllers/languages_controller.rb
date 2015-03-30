@@ -1,7 +1,10 @@
 class LanguagesController < ApplicationController
-
+  before_action :authenticate_admin
 
   def new
+  end
+
+  def create 
   end
 
   #if the user decides to change the language they're using

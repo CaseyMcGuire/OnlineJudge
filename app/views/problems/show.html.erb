@@ -38,7 +38,7 @@
    <% end %>
    
    <% if admin? %>
-       <%= link_to new_test_path(:problem_id => params[:id]), :class => "btn btn-default", method: :get do %>
+       <%= link_to test_path(:problem_id => params[:id]), :class => "btn btn-default", :id => "#{@cur_language.id}", method: :get do %>
 	   New Test
        <% end %>
    <% end %>
