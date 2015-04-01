@@ -38,12 +38,15 @@ class SubmissionsController < ApplicationController
   def get_ungraded
             
     incomplete = Submission.where(completed: false).first
+    result = Result.where(problem_id: incomplete.problem.id).first
 
     to_return = {
       submission_id: incomplete.id,
       code: incomplete.code,
       language: incomplete.language.name,
-      test_code: Test.where(language_id: incomplete.language.id, problem_id: incomplete.problem.id)[0].test_code
+      test_code: Test.where(language_id: incomplete.language.id, problem_id: incomplete.problem.id)[0].test_code,
+      input: result.input,
+      output: result.expected_result
     }.to_json
     
     
