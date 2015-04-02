@@ -1,6 +1,7 @@
 //= require ace/ace
-'use strict';
+
 $(document).ready(function(){
+    'use strict';
     var editor = ace.edit("editor");
     var textarea = $('textarea[name="textarea"]').hide();
 
@@ -16,9 +17,11 @@ $(document).ready(function(){
     //editor into the hidden textarea so it can be posted.
     $("#submit_button").click(function() {
 	textarea.val(editor.getSession().getValue());
+	$('#result').empty();
     });
 
    
+
 
     $('#language-selector').click(function(){
 	console.log($(this).val());
@@ -66,25 +69,9 @@ $(document).ready(function(){
 		console.log(status);
 		if(status === 'success'){
 		    console.log(data);
-		   
-		    $('#old').remove();//What does this do?
+		 		 
 		    $('#result').append("<div class='alert alert-info' role='alert'>" + data.text + "</div>");
-		    queryServerForResult(data.submission, function(result){
-			$('.alert.alert-info').remove();
-
-			//This is pretty brittle... probably want to change it
-			if(result.status_id === 2){
-			    //if the result was correct, put a green pass banner
-			    $('#result').append("<div class='alert alert-success' role='alert'>PASS</div>");
-			}else{
-			    //if the result was not correct, put a red FAIL banner
-			    $('#result').append("<div class='alert alert-danger' role='alert'>FAIL</div>");
-			}
-			console.log("We're in the callback!");
-			console.log(result);
-			$("#submit_button").prop('disabled', false);
-
-		    });
+		    queryServerForResult(data.submission, updateSubmissionStatus);
 		}else{
 		    console.log("error");
 		}
@@ -100,6 +87,31 @@ $(document).ready(function(){
 });
 
 /*
+  Updates the page with an appropriate banner when called.
+
+  @param {Object} result An object that should have an attribute 'result'
+*/
+function updateSubmissionStatus(result){
+
+    //remove the running banner
+    $('.alert.alert-info').remove();
+    
+    console.log(result);
+    
+    if(result.result === "Success"){
+	//if the result was correct, put a green pass banner
+	$('#result').append("<div class='alert alert-success' role='alert'>PASS</div>");
+    }else{
+	//if the result was not correct, put a red FAIL banner
+	$('#result').append("<div class='alert alert-danger' role='alert'>FAIL</div>");
+    }
+    
+    //make it so the user can click the button already
+    $("#submit_button").prop('disabled', false);
+    
+}
+
+/*
   This method repeatedly queries the server for the result of the user's 
   submission.
   
@@ -107,28 +119,20 @@ $(document).ready(function(){
   @param {Function} Function to be called when the submission has been graded.
 */
 function queryServerForResult(submission, callback){
-
-    //This method needs to:
-    //repeatedly query the server as to the status of the user's submission
-    //perhaps pass a data object with problem and submission id
-
     var intervalId = window.setInterval(function(){
-	
 	$.get(
 	    "/submission/" + submission.id +"/check",
 	    submission,
 	    function(data, status){
 		if(status === "success"){
-		    console.log("success");
-		    console.log("data");
-		    console.log(data);
-		    console.log(data.submission.completed);
-		    
+		    //console.log("success");
+		    //console.log("data");
+		  		    
 		    //if the submission has been graded, stop querying the server
-		   if(data.submission.completed === true){
+		   if(data.completed === true){
 		       window.clearInterval(intervalId);
 		       console.log("The submission has been graded");
-		       callback(data.submission);
+		       callback(data);
 		   }
 		}else{
 		    console.log("something other than success");
@@ -138,12 +142,14 @@ function queryServerForResult(submission, callback){
 	    "JSON");
 
     }, 5000);
-    
-
 }
 
+/*
+  Returns the passed string with first letter capitalized.
+
+  @param {String} str The string to be capitalized.
+*/
 function capitalize(str){
-    console.log(str);
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 

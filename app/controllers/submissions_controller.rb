@@ -38,6 +38,9 @@ class SubmissionsController < ApplicationController
   def get_ungraded
             
     incomplete = Submission.where(completed: false).first
+    puts "======================"
+    puts incomplete
+    puts "===================="
     result = Result.where(problem_id: incomplete.problem.id).first
 
     to_return = {
@@ -61,10 +64,23 @@ class SubmissionsController < ApplicationController
 
   #updates the status of the submission OR allows user to save submission
   def update
-    puts '==================='
+    puts '======================================'
     puts 'HELLO WORLD'
     puts params
-    puts '==================='
+    puts params[:result].squish.eql? "PASS"
+    puts '======================================'
+    submission =  Submission.find(params[:id])#where(id: params[:id])
+    submission.completed = true
+    if params[:result].squish.eql? "PASS"
+      submission.status = Status.find_by(name: "Success")
+    else
+      submission.status = Status.find_by(name: "Failure")
+    end
+    submission.save
+    puts submission.completed
+    puts submission
+    puts "--------------------------------------"
+
     respond_to do |format|
       format.json {render json: {status:"OK"}.to_json }
     end
@@ -77,9 +93,10 @@ class SubmissionsController < ApplicationController
   #Want to check on *specific* submission
   def check
     submission = Submission.find(params[:id])
+   
     respond_to do |format|
       format.html { redirect_to problem_path}
-      format.json { render json: {'submission' => submission} }
+      format.json { render json: {completed: submission.completed, result: submission.status.try(:name)}.to_json }
     end
   end
 

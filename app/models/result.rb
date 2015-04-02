@@ -8,6 +8,8 @@
 #  input           :text
 #  created_at      :datetime
 #  updated_at      :datetime
+#  sample_input    :text
+#  sample_output   :text
 #
 
 class Result < ActiveRecord::Base
