@@ -37,7 +37,7 @@ $(document).ready(function(){
     });
     
 
-    $('form').on('submit', function(){
+    $('form').on('submit', function(event){
 	
 	event.preventDefault();
 	//disable our button
