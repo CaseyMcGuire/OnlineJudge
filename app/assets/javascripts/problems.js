@@ -20,10 +20,6 @@ $(document).ready(function(){
 	$('#result').empty();
     });
 
-
-   
-
-
     $('#language-selector').click(function(){
 	console.log($(this).val());
 	if($(this).val().toLowerCase() === curLanguage){ 
