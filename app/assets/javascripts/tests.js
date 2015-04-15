@@ -1,8 +1,8 @@
 //= require ace/ace
-'use strict';
+
 (function($){
     $(document).ready(function(){
-	
+	'use strict';
 	
 
 	var testEditor = ace.edit("test-code-editor");

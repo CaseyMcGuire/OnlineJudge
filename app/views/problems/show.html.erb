@@ -33,11 +33,18 @@
 	
     </div>
     
+    <div class="starter-code">
     <% @tests.each do |t| %>
        <input id="<%=t.language.name%>-starter-code" type="hidden" value="<%=t.starter_code%>">
    <% end %>
-   
-   <% if admin? %>
+    </div>
+
+    <div class="running-code">
+	<% @tests.each do |t| %>
+	    <input id="<%=t.language.name%>-running-code" type="hidden" value="<%=t.starter_code%>">
+	<% end %>
+    </div>
+    <% if admin? %>
        <%= link_to test_path(:problem_id => params[:id]), :class => "btn btn-default", :id => "#{@cur_language.id}", method: :get do %>
 	   New Test
        <% end %>

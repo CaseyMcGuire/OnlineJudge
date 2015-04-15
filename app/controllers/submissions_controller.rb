@@ -36,22 +36,27 @@ class SubmissionsController < ApplicationController
 
   #returns *any* ungraded submission
   def get_ungraded
-            
-    incomplete = Submission.where(completed: false).first
-    puts "======================"
-    puts incomplete
-    puts "===================="
-    result = Result.where(problem_id: incomplete.problem.id).first
 
-    to_return = {
-      submission_id: incomplete.id,
-      code: incomplete.code,
-      language: incomplete.language.name,
-      test_code: Test.where(language_id: incomplete.language.id, problem_id: incomplete.problem.id)[0].test_code,
-      input: result.input,
-      output: result.expected_result
-    }.to_json
-    
+    #need to add some sort of status that says that submission is being graded
+
+    if Submission.exists?(:completed => false)
+      incomplete = Submission.where(completed: false).first
+      puts "======================"
+      puts incomplete
+      puts "===================="
+      result = Result.where(problem_id: incomplete.problem.id).first
+      
+      to_return = {
+        submission_id: incomplete.id,
+        code: incomplete.code,
+        language: incomplete.language.name,
+        test_code: Test.where(language_id: incomplete.language.id, problem_id: incomplete.problem.id)[0].test_code,
+        input: result.input,
+        output: result.expected_result
+      }.to_json
+    else
+      to_return = {}
+    end
     
     respond_to do |format|
       format.html {redirect_to root_path}
@@ -67,11 +72,11 @@ class SubmissionsController < ApplicationController
     puts '======================================'
     puts 'HELLO WORLD'
     puts params
-    puts params[:result].squish.eql? "PASS"
+   # puts params[:result].squish.eql? "PASS"
     puts '======================================'
     submission =  Submission.find(params[:id])#where(id: params[:id])
     submission.completed = true
-    if params[:result].squish.eql? "PASS"
+    if params[:result] != nil && params[:result].squish.eql?("PASS")
       submission.status = Status.find_by(name: "Success")
     else
       submission.status = Status.find_by(name: "Failure")

@@ -20,20 +20,25 @@ $(document).ready(function(){
 	$('#result').empty();
     });
 
+
    
 
 
     $('#language-selector').click(function(){
 	console.log($(this).val());
-	if($(this).val().toLowerCase() === curLanguage ||
-	   !window.confirm("Are you sure? You will lose all progress")){ 	   	    document.getElementById('language-selector').value = capitalize(curLanguage);
+	if($(this).val().toLowerCase() === curLanguage){ 
+	    document.getElementById('language-selector').value = capitalize(curLanguage);
 	    	    
 											    return;
 	}
+
+	document.getElementById(curLanguage + '-running-code').value = editor.getSession().getValue();
 	
 	curLanguage = $(this).val().toLowerCase();
+	document.getElementById('language').value = curLanguage;
+//	console.log(document.getElementById('language').value);
 	editor.getSession().setMode('ace/mode/' + curLanguage);
-	editor.setValue($('#' + curLanguage + '-starter-code').val(), -1);
+	editor.setValue($('#' + curLanguage + '-running-code').val(), -1);
     });
     
 
