@@ -17,7 +17,10 @@ class ProblemsController < ApplicationController
     @languages = Language.joins(test: :problem).where("problem_id = ?", params[:id])
     @cur_language = @languages.last
     
-       
+    result = Result.find_by_problem_id(params[:id])
+    
+    @sample_input = result.sample_input
+    @sample_output = result.sample_output
     @tests = Test.where("problem_id=?", @problem.id)
     
     #puts "================"

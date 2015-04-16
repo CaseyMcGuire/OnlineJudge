@@ -25,6 +25,27 @@
     text-align: center;
 }
 
+.sample-input-and-output{
+  width: 85%;
+}
+
 .problem-controls{
     width: 33%;
+}
+
+.sample-input{
+  float: left; 
+}
+
+.sample-output{
+  float: right;
+}
+
+.sample-output, .sample-input{
+    width: 50%;
+}
+
+.sample-text{
+    text-align: left;
+    margin: 2px;
 }
