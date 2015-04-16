@@ -76,7 +76,7 @@ class SubmissionsController < ApplicationController
     puts '======================================'
     submission =  Submission.find(params[:id])#where(id: params[:id])
     submission.completed = true
-    if params[:result] != nil && params[:result].squish.eql?("PASS")
+    if params[:result] != nil && params[:result].eql?(0)
       submission.status = Status.find_by(name: "Success")
     else
       submission.status = Status.find_by(name: "Failure")
