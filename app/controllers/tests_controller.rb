@@ -23,6 +23,7 @@ class TestsController < ApplicationController
   
   def create
     if test_exists?
+      flash[:notice] = "Test already exists"
       redirect_to tests_path
     end
     puts "=================="

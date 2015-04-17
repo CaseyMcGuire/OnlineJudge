@@ -1,10 +1,24 @@
 class LanguagesController < ApplicationController
-  before_action :authenticate_admin
+  before_action :authenticate_admin!
+
+  def index
+    @languages = Language.all
+  end
 
   def new
   end
 
   def create 
+  end
+
+  def edit
+    @language = Language.find(params[:id])
+  end
+
+  def update
+  end
+
+  def destroy
   end
 
   #if the user decides to change the language they're using

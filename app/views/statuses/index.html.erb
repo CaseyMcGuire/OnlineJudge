@@ -1,0 +1,8 @@
+<h1>Hello, Statuses#Index</h1>
+<table class="table">
+    <% @statuses.each do |status| %>
+	<tr>
+	    <td><%= status.name %></td>
+	</tr>
+    <% end %>
+</table>

@@ -7,7 +7,14 @@ $(document).ready(function(){
 
     var curLanguage = document.getElementById('language').getAttribute('value');
     editor.setTheme("ace/theme/monokai");
-    editor.getSession().setMode("ace/mode/" + curLanguage);
+    /*
+    if(curLanguage === "C" ||curLanguage === "C++"){
+	editor.getSession().setMode("ace/mode/c_cpp");
+    }else{
+	editor.getSession().setMode("ace/mode/" + curLanguage);
+    }
+    */
+    changeLanguage(editor, curLanguage);
     editor.setValue($('#' + curLanguage +'-running-code').val(), -1);
     editor.setFontSize(18);
 
@@ -33,7 +40,8 @@ $(document).ready(function(){
 	curLanguage = $(this).val().toLowerCase();
 	document.getElementById('language').value = curLanguage;
 //	console.log(document.getElementById('language').value);
-	editor.getSession().setMode('ace/mode/' + curLanguage);
+//	editor.getSession().setMode('ace/mode/' + curLanguage);
+	changeLanguage(editor, curLanguage);
 	editor.setValue($('#' + curLanguage + '-running-code').val(), -1);
     });
     
@@ -154,4 +162,17 @@ function capitalize(str){
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+/*
+  Given the ace editor object and the current programming language, sets 
+  appropriate syntax highlighting rules in the editor.
 
+  @param {Object} editor The ace editor object
+  @param {String} curLanguage The name of the current language in lowercase.
+*/
+function changeLanguage(editor, curLanguage){
+    if(curLanguage === "c" || curLanguage === "c++"){
+	editor.getSession().setMode("ace/mode/c_cpp");
+    }else{
+	editor.getSession().setMode("ace/mode/" + curLanguage);
+    }
+}

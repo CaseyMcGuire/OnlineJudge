@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/faq', to: 'home#faq'
 
 
-  resources :problems, :tests, :results
+  resources :problems, :tests, :results, :languages, :statuses
 
   #submissions controller
   post '/submission', to: 'submissions#create'
@@ -18,5 +18,5 @@ Rails.application.routes.draw do
   get '/submissions', to: 'submissions#index', as: 'submissions'
   get '/submissions/:id', to: 'submissions#show'
 
-  post 'language', to: 'languages#get'
+ # post 'language', to: 'languages#get'
 end

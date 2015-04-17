@@ -1,1 +1,10 @@
-<h1>Hello Language#new</h1>
+<div class="language-form">
+    <h1>Add a new language.</h1>
+
+
+    <%= form_tag(new_language_path, :method => "post", :class => "pure-form") do %>
+	<label for="language-name">Language Name: </label>
+	<input id="language-name" name="language-name" type="text">
+	<input type="submit" value="Create">
+    <% end %>
+</div>
