@@ -11,18 +11,43 @@ class ProblemsController < ApplicationController
 
   #show a specific problem
   def show
+    
+   
+    
     @problem = Problem.find(params[:id])
     #should redirect here if teh user tries anything fishy
    
     @languages = Language.joins(test: :problem).where("problem_id = ?", params[:id])
-    @cur_language = @languages.last
     
+    if params[:language_id] != nil && @languages.where(id: params[:language_id]).present?
+      @cur_language = @languages.find(params[:language_id])
+      
+    else
+      @cur_language = @languages.last
+    end
+
     result = Result.find_by_problem_id(params[:id])
     
     @sample_input = result.sample_input
     @sample_output = result.sample_output
-    @tests = Test.where("problem_id=?", @problem.id)
+
     
+    @tests = Test.where("problem_id=?", @problem.id)
+
+    if params[:submission_id] != nil
+      #make sure this is the current user's submission
+      submission = Submission.find(params[:submission_id])
+
+      if submission.user_id != current_user.id
+        redirect_to problem_path(params[:id])
+      end
+      
+      @beginning_code = submission.code
+    else
+      @beginning_code = Test.where(language_id: @cur_language.id, problem_id: params[:id]).first.starter_code
+    end
+    
+
     #puts "================"
     #puts @test
     #puts "================"

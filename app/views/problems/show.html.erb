@@ -6,7 +6,8 @@
 	<blockquote>
 	    <h2> <%= @problem.name %></h2>
 	    <h4><%= @problem.description %></h4>
-	    <a href="#" class="pure-button">Previous Submissions</a>
+	   
+	    <%= link_to "Previous Submissions", submissions_path(:id => @problem.id), :class => "pure-button" %>
 	</blockquote>
 
 	<div class="sample-input-and-output">
@@ -31,7 +32,7 @@
     <div class="problem-controls">
 	<select id="language-selector" class="form-control">
 	    <% @languages.each do |language| %>
-		<option> <%= language.name.capitalize %></option>
+		<option> <%= language.name.capitalize %> </option>
 	    <% end %>
 	</select>
     </div>
@@ -60,9 +61,16 @@
 
     <div class="running-code">
 	<% @tests.each do |t| %>
-	    <input id="<%=t.language.name%>-running-code" type="hidden" value="<%=t.starter_code%>">
+	    <% if t.language.name != @cur_language.name %>
+		<input id="<%=t.language.name%>-running-code" type="hidden" value="<%=t.starter_code%>">
+
+		<% else %>
+		<input id="<%= @cur_language.name%>-running-code" type="hidden" value="<%=@beginning_code%>">
+	    <% end %>
 	<% end %>
     </div>
+
+
     <% if admin? %>
        <%= link_to test_path(:problem_id => params[:id]), :class => "btn btn-default", :id => "#{@cur_language.id}", method: :get do %>
 	   New Test

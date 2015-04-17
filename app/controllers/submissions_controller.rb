@@ -1,9 +1,14 @@
 class SubmissionsController < ApplicationController
 
-  before_action :authenticate_user!, only: [:new, :check]
+  before_action :authenticate_user!, only: [:new, :check, :index]
   protect_from_forgery except: :update
 
   def index
+    if params[:id] != nil
+      @submissions = Submission.where(problem_id: params[:id], user_id: current_user.id).order(created_at: :desc)
+    else
+      @submissions = Submission.where(user_id: current_user.id).order(created_at: :desc)
+    end
   end
 
   def show

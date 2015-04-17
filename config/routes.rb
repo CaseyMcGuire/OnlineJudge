@@ -13,8 +13,10 @@ Rails.application.routes.draw do
   #submissions controller
   post '/submission', to: 'submissions#create'
   get '/submission/:id/check', to: 'submissions#check', as: 'check'
-  get '/submission/get_ungraded', to: 'submissions#get_ungraded'
-  post '/submission/update/:id', to: 'submissions#update'
+  get '/submissions/get_ungraded', to: 'submissions#get_ungraded'
+  post '/submissions/update/:id', to: 'submissions#update'
+  get '/submissions', to: 'submissions#index', as: 'submissions'
+  get '/submissions/:id', to: 'submissions#show'
 
   post 'language', to: 'languages#get'
 end

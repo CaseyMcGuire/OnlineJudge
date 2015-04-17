@@ -8,7 +8,7 @@ $(document).ready(function(){
     var curLanguage = document.getElementById('language').getAttribute('value');
     editor.setTheme("ace/theme/monokai");
     editor.getSession().setMode("ace/mode/" + curLanguage);
-    editor.setValue($('#' + curLanguage +'-starter-code').val(), -1);
+    editor.setValue($('#' + curLanguage +'-running-code').val(), -1);
     editor.setFontSize(18);
 
     document.getElementById('language-selector').value = capitalize(curLanguage);
