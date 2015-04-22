@@ -7,7 +7,10 @@
 	<!--links -->
 	<ul class="nav navbar-nav">
 	    <li><%= link_to "Problems", problems_path %></li>
-	    <li><%= link_to "Profile"%></li>
+	    <% if user_signed_in? %>
+		<li><%= link_to "Profile", profiles_path(current_user.id)%></li>
+	    <% end %>
+	    
 	    <% if admin? %>
 		<li> <%= link_to "Tests", tests_path%></li>
 		<li> <%= link_to "FAQ", faq_path %></li>

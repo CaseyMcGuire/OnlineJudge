@@ -20,7 +20,7 @@
 		<!--This needs to be fixed. -->
 		<% if admin? %>
 		    <td>
-			<%= link_to "edit", edit_problem_path(problem) %>
+			<%= link_to "Edit", edit_problem_path(problem), :class => "btn btn-info btn-sm", method: :get %>
 		    </td>
 		    <!-- Also want to allow admin to destroy -->
 		<% end %>
@@ -33,7 +33,7 @@
     
     
     <% if admin? %>
-	<%= link_to new_problem_path, :class => "btn btn-default" do %>
+	<%= link_to new_problem_path, :class => "btn btn-default btn-block" do %>
 	    New
 	<% end %>
     <% end %>

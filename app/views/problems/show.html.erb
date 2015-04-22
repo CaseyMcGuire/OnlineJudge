@@ -27,8 +27,30 @@
 		
 	    </div>
 	</div>
-    </div>
     
+
+   
+    <% if admin? %>
+<!-- Admin controls -->
+	<a href="#collapse" class="btn btn-danger" data-toggle="collapse" aria-expanded="false" aria-controls="#collapse">
+	    Admin Options
+	</a>
+
+	<div class="collapse" id="collapse">
+	    <div class="well">
+		<div class="row">
+	    <div class="col-md-6">
+		<%= link_to test_path(:problem_id => params[:id]), :class => "btn btn-default", :id => "#{@cur_language.id}", method: :get do %>
+		    Edit Test
+		<% end %>
+	    </div>
+    <% end %>
+    <div class="col-md-6">
+    </div>
+	    </div>
+	</div>
+	</div>
+<!-- Language dropdown menu -->
     <div class="problem-controls">
 	<select id="language-selector" class="form-control">
 	    <% @languages.each do |language| %>
@@ -37,22 +59,26 @@
 	</select>
     </div>
 </div>
+</div>
+
+
 <div class="jumbotron">   
     <div id="editor">
 	    
     </div>
     
+    <blockquote class="submit-form">
     <%= form_tag(submission_path, :method => "post") do %>
 	<%= text_area_tag "textarea", :text %>
 	<%= hidden_field_tag(:problem_id, params[:id])%>
 	<%= hidden_field_tag(:language, @cur_language.name)%>
-	<%= submit_tag("Submit", :class => "btn btn-primary #{@should_enable}", :id => "submit_button")%>
+	<%= submit_tag("Submit", :class => "btn btn-primary #{@should_enable} btn-block", :id => "submit_button")%>
     <% end  %>
     
     <div id="result">
 	
     </div>
-    
+    </blockquote>
     <div class="starter-code">
     <% @tests.each do |t| %>
        <input id="<%=t.language.name%>-starter-code" type="hidden" value="<%=t.starter_code%>">
@@ -71,10 +97,4 @@
     </div>
 
 
-    <% if admin? %>
-       <%= link_to test_path(:problem_id => params[:id]), :class => "btn btn-default", :id => "#{@cur_language.id}", method: :get do %>
-	   New Test
-       <% end %>
-   <% end %>
-   
 </div>

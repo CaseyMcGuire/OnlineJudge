@@ -18,5 +18,7 @@ Rails.application.routes.draw do
   get '/submissions', to: 'submissions#index', as: 'submissions'
   get '/submissions/:id', to: 'submissions#show'
 
+  get '/profiles/:id', to: 'profiles#show', as: 'profiles'
+
  # post 'language', to: 'languages#get'
 end

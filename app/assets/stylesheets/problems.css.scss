@@ -4,8 +4,8 @@
 #editor { 
     position: relative;
     width: 95%;
-    max-width: 900px;
-    height: 600px;
+    max-width: 1000px;
+    height: 700px;
     top: 0;
     right: 0;
     bottom: 0;
@@ -79,3 +79,10 @@
 textarea{
     resize: none;
 }
+
+/* makes it so submit button doesn't take up entire screen */
+.submit-form{
+    max-width: 900px;
+    margin: 0 auto;
+}
+    
