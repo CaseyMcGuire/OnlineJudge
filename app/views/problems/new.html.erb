@@ -1,19 +1,26 @@
-<h1> Hello Problem#new</h1>
+
 
 <div class="container">
-<div class="center">
-    <%= form_tag(problems_path, :method => "post") do%>
-	<p><%= label_tag(:name, "Problem name:")%>
-	    <%= text_field_tag :name %></p>
+    <div class="center">
+	<div class="page-header">
+	    <blockquote>
+	    <h2>Write a new a problem<small>This will not appear to the user until tests have been written in at least one language, inputs have been written, and expected output has been written.</small></h2>
+	    </blockquote>
+	</div>
+	<div class="problem-form">
+	    <%= form_tag(problems_path, :method => "post") do%>
+		<p><%= label_tag(:name, "Problem name:")%>
+		    <%= text_field_tag(:name, "", :class => "form-control problem-name")%></p>
+		
+		<p><%= label_tag(:description, "Problem description: ")%>
+		    <textarea id="description" name="description" class="form-control problem-description" rows="14"></textarea>
+
+		</p>
 	
-	<p><%= label_tag(:description, "Problem description: ")%>
-	    <textarea id="description" name="description" class="form-control" rows="2"></textarea>
-
-</p>
-	
-	<%= submit_tag("Create", :class => "btn btn-primary")%>
+		<%= submit_tag("Create", :class => "btn btn-primary")%>
 
 
-    <% end %>
-</div>
+	    <% end %>
+	</div>
+    </div>
 </div>

@@ -12,9 +12,6 @@ class ProfilesController < ApplicationController
 
   end
 
-  private 
-  def current_user_profile?
-    params[:id] == nil || current_user.id == params[:id]
-  end
+  
 
 end
