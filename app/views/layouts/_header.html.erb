@@ -6,15 +6,16 @@
     <div class="container-fluid">
 	<!--links -->
 	<ul class="nav navbar-nav">
-	    <li><%= link_to "Problems", problems_path %></li>
+	    <li><%= link_to "Problems", problems_path, method: :get %></li>
 	    <% if user_signed_in? %>
 		<li><%= link_to "Profile", profiles_path(current_user.id)%></li>
 	    <% end %>
 	    
 	    <% if admin? %>
 		<li> <%= link_to "Tests", tests_path%></li>
-		<li> <%= link_to "FAQ", faq_path %></li>
+	
 	    <% end %>
+	    <li> <%= link_to "FAQ", faq_path %></li>
 	</ul>
 
 	<!-- end links  -->
@@ -31,7 +32,9 @@
 	<% else %>
 	    
 	    <div class="navbar-right">
-		  <%= current_user.email %>	
+		
+		<span class="username"><%= current_user.email %></span>
+		
 		<%= link_to destroy_user_session_path, :method => :delete, :class => "btn btn-danger logout-button" do %>
 		    Sign out
 		   <% end %>
