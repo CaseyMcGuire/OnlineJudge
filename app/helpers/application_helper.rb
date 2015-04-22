@@ -21,4 +21,6 @@ module ApplicationHelper
   def result_exists?(problem_id)
     Result.exists?(:problem_id => problem_id)
   end
+
+
 end

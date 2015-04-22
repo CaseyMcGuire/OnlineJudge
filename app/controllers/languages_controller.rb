@@ -5,10 +5,10 @@ class LanguagesController < ApplicationController
     @languages = Language.all
   end
 
-  def new
-  end
-
-  def create 
+  def create
+    Language.new(:name => params[:language_name]).save
+    flash[:update] = "New language saved"
+    redirect_to faq_path
   end
 
   def edit

@@ -12,4 +12,6 @@
     text-decoration: none;
 }
 
-
+p:empty{
+    display:none;
+}

@@ -1,19 +1,26 @@
-<h1>Hello submission#index</h1>
 
-<table class="table">
+<div class="container-background">
+<div class="container container-background">
+<h1>Past Submissions</h1>
+    <table class="table table-condensed table-bordered">
     
     <%@submissions.each_with_index do |submission, i| %>
-	<tr>
+	<% if submission.passed? %>
+	    <tr class="success">
+	<% else %>
+	    <tr class="danger">
+	<% end %>
 	    <td><%= i %></td>
 	    <td><%= link_to submission.problem.name, problem_path(:id => submission.problem.id, :submission_id => submission.id, :language_id => submission.language.id), :method => :get%></td>
 	    <td><%=submission.language.name.capitalize %></td>
 	    <td><%=submission.created_at%></td>
-	    <td><%= submission%></td>
+	    <td><%=submission.status.try(:name) %></td>
+	   
 	    
 	</tr>
     <% end %>
 </table>
-
-
+</div>
+</div>
 
 

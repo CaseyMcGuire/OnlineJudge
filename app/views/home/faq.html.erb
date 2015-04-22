@@ -1,1 +1,21 @@
-<h1>faq</h1>
+
+<div class="container">
+
+    <h1>FAQ</h1>
+    <b>What is this?</b>
+    <div class="well">
+	A coding website.
+    </div>
+    <b>What languages do you offer?</b>
+    <div class="well">
+    <ul>
+	<% @languages.each do |i| %>
+	    <li><%=i.name.capitalize%></li>
+	<% end %>
+    </ul>
+    </div>
+    <% if admin? %>
+	<%= link_to "New Language", new_language_path, :class => "btn btn-primary", :method => "get" %>
+    <% end %>
+   
+</div>

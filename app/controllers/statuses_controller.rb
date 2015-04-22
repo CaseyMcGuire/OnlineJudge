@@ -13,7 +13,7 @@ class StatusesController < ApplicationController
   end
 
   def edit
-    @status = Status.find(params[id])
+    @status = Status.find(params[:id])
   end
 
   def update

@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require ace/ace
 //= require bootstrap
+

@@ -18,4 +18,8 @@ class Submission < ActiveRecord::Base
   belongs_to :status
   belongs_to :problem
   belongs_to :language
+
+  def passed?
+    Status.find_by(id: self.status_id).try(:name) == "Success"
+  end
 end

@@ -9,8 +9,10 @@
 	var startEditor = ace.edit("starter-code-editor");
 	var languageName = $("#language-name").val();
 	
-	testEditor.getSession().setMode("ace/mode/" + languageName);
-	startEditor.getSession().setMode("ace/mode/" + languageName);
+	//testEditor.getSession().setMode("ace/mode/" + languageName);
+//	startEditor.getSession().setMode("ace/mode/" + languageName);
+	changeLanguage(testEditor, languageName);
+	changeLanguage(startEditor, languageName);
 	testEditor.setTheme("ace/theme/monokai");
 	startEditor.setTheme("ace/theme/monokai");
 	
@@ -55,4 +57,19 @@
 
     });
 })(jQuery);
+
+/*
+  Given the ace editor object and the current programming language, sets 
+  appropriate syntax highlighting rules in the editor.
+
+  @param {Object} editor The ace editor object
+  @param {String} curLanguage The name of the current language in lowercase.
+*/
+function changeLanguage(editor, curLanguage){
+    if(curLanguage === "c" || curLanguage === "c++"){
+	editor.getSession().setMode("ace/mode/c_cpp");
+    }else{
+	editor.getSession().setMode("ace/mode/" + curLanguage);
+    }
+}
 

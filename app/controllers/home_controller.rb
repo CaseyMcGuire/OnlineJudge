@@ -8,6 +8,7 @@ class HomeController < ApplicationController
   end
 
   def faq
+    @languages = Language.all
   end
 
   def error
