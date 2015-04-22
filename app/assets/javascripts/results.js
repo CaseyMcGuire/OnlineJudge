@@ -8,7 +8,10 @@
 	var sampleInputEditor = ace.edit("sample-input-editor");
 	var sampleOutputEditor = ace.edit("sample-output-editor");
 	
-
+	setTheme(expectedResultEditor);
+	setTheme(inputEditor);
+	setTheme(sampleInputEditor);
+	setTheme(sampleOutputEditor);
 
 	expectedResultEditor.getSession().on('change', function(e){
 	    $('#expected-result').val(expectedResultEditor.getSession().getValue());
@@ -45,3 +48,7 @@
     });
     
 })(jQuery);
+
+function setTheme(editor){
+    editor.setTheme('ace/theme/github');
+}

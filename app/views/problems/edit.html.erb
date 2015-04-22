@@ -1,13 +1,14 @@
-<h1>Hello Problem#edit</h1>
 
-<div class="center">
+
+<div class="center problem-form">
+<h2>Edit</h2>
 <%= form_tag(problem_path, :method => "put") do %>
     <p><%=label_tag(:name, "Problem name:")%>
-	<%= text_field_tag(:name, @cur_problem.name)%></p>
+	<%= text_field_tag(:name, @cur_problem.name, :class => "form-control problem-name")%></p>
     
     <p><%= label_tag(:description, "Problem description: ")%>
-	<%= text_area_tag(:description, @cur_problem.description)%></p>
-    <%= submit_tag("Update", :class => "btn btn-primary")%>
+	<%= text_area_tag(:description, @cur_problem.description, :class => "form-control problem-description", :rows => "10")%></p>
+    <%= submit_tag("Update", :class => "pure-button pure-input-1-2 pure-button-primary")%>
 <% end %>
 </div>
 

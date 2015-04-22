@@ -29,7 +29,7 @@
 	    
 	    <div class="navbar-right">
 		  <%= current_user.email %>	
-		<%= link_to destroy_user_session_path, :method => :delete, :class => "btn btn-danger" do %>
+		<%= link_to destroy_user_session_path, :method => :delete, :class => "btn btn-danger logout-button" do %>
 		    Sign out
 		   <% end %>
 		

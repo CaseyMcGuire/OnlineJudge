@@ -1,16 +1,25 @@
-<h1>Hello Test#Edit</h1>
+<div class="container-fluid">
+
+    <div class="well well-sm"><h3>Edit test code for <%=@problem.name%><small> in <%=@language.name.capitalize%> </small></h3></div>
 
 
-<p>Write the starter code for the problem here. </p>
+    <div class="well well-sm">
+    <blockquote>
+	<p>Write the starter code for the problem here. </p></blockquote>
 <div class="editor" id="starter-code-editor">
-    
+</div>
 </div>
 
-<p>Write the test code (if applicable) here. </p>
+<div class="well well-sm">
+<blockquote>
+<p>Write the test code here. </p>
+
+
+</blockquote>
 <div class="editor" id="test-code-editor">
 
 </div>
-
+</div>
 <%= form_tag(test_path, :method => "put") do %>
     <%= hidden_field_tag(:problem_id, @problem.id)%>
     <%= hidden_field_tag(:language_id, @language.id)%>
@@ -23,3 +32,5 @@
 <input id="old-starter-code" type="hidden" value="<%=@test.starter_code%>">
 <input id="old-test-code" type="hidden" value="<%=@test.test_code%>">
 <input id="language-name" type="hidden" value="<%=@test.language.name %>">
+
+</div>

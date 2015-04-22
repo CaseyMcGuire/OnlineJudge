@@ -1,30 +1,52 @@
-<h1>Hello results#edit </h1>
-<h2>The problem we are currently editing is <%=@cur_problem.name%></h2>
+<div class="container-fluid">
+    
 
+    
+	<div class="well">
+	    <h2>Edit results <small><%=@cur_problem.name%></small></h2>
+	</div>
+    
+	<div class="jumbotron">
+	<blockquote>
+	    <h4>
+		This is where the input to the problem will go in the problem is a contest problem. <small>The user will <b>not</b> see this.</small>
+	    </h4>
+	</blockquote>
+	<div class="result-editor" id="input-editor">
+    
+	</div>
+	</div>
 
-<h4>This is where the expected output of standard out will be. The user will not see this.</h4>
+<div class="jumbotron">
+<blockquote>
+    <h4>This is where the expected output of standard out will be. <small> The user will <b>not</b> see this.</small></h4>
+</blockquote>
 <div class="result-editor" id="expected-result-editor">
 </div>
-
-<h4>This is where the input to standard in will go in the problem is a contest problem. The user will not see this.</h4>
-<div class="result-editor" id="input-editor">
-    
 </div>
 
-<h4>This is where sample input will go. The user will see this.</h4>
+<div class="jumbotron">
+<blockquote>
+    <h4>This is where sample input will go.<small> The user will see this.</small></h4></blockquote>
 <div class="result-editor" id="sample-input-editor"></div>
-<h4>This is where sample output will go. The user will see this.</h4>
+</div>
+
+
+<div class="jumbotron">
+    <blockquote>
+	<h4>This is where sample output will go. <small>The user will see this.</small></h4></blockquote>
 <div class="result-editor" id="sample-output-editor"></div>
+</div>
 
-
+<div class="well well-sm test-submit-form">
 <%= form_tag result_path(@cur_result), :method => "put" do %>
     <input name="input" type="hidden" id="result-input" value="<%= @cur_result.input %>">
     <input name="expected_result" type="hidden" id="expected-result-input" value="<%= @cur_result.expected_result%>"> 
     <input name="sample_input" type="hidden" id="sample_input" value="<%=@cur_result.sample_input%>">
     <input name="sample_output" type="hidden" id="sample_output" value="<%=@cur_result.sample_output%>">
-    <input type="submit" class="btn btn-primary" value="Update">
+    <input type="submit" class="btn btn-primary btn-block" value="Update">
 <% end %>
-
-
+</div>
+</div>
 
 

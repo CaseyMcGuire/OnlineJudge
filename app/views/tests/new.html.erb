@@ -1,25 +1,29 @@
-<h1> Hello Test#new</h1>
-<h1><%= @problem.name%></h1>
-<h1><%= @language.name.capitalize%> </h1>
-<p>Write the starter code for the problem here. </p>
+<blockquote>
+    <div class="well">
+    <h2> Write new test code for <%=@problem.name%> <small> in <%= @language.name.capitalize%></small></h2>
+    </div>
+</blockquote>
+<div class="container">
+    <div class="well well=sm"><h4>Write the starter code for the problem here.</h4> </div></div>
 <div class="editor" id="starter-code-editor">
     
 </div>
 
-<p>Write the test code (if applicable) here. </p>
+<div class="container instructions-block"><div class="well well-sm"><h4>Write the test code (if applicable) here.</h4> </div></div>
 <div class="editor" id="test-code-editor">
 
 </div>
 
+<div class="container well">
 <%= form_tag(tests_path, :method => "post") do %>
     <!-- < %  = hidden_field_tag(:problem_id, params[:problem_id]) % >-->
     <input id="problem_id" name="problem_id" type="hidden" value="<%=params[:problem_id]%>" />
     <%= hidden_field_tag(:language_id, params[:language_id])%>
     <%= hidden_field_tag(:starter_code, "")%>
     <%= hidden_field_tag(:test_code, "")%>
-    <%= submit_tag("Create", :id => "submit-button", :class => "btn btn-primary")%>
+    <%= submit_tag("Create", :id => "submit-button", :class => "btn btn-primary btn-block")%>
 <% end %>
-
+</div>
 <div class="start_code"> </div>
 <div class="test_code"> </div>
 
