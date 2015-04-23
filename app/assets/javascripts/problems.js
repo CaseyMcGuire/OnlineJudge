@@ -39,10 +39,16 @@ $(document).ready(function(){
 	
 	curLanguage = $(this).val().toLowerCase();
 	document.getElementById('language').value = curLanguage;
-//	console.log(document.getElementById('language').value);
-//	editor.getSession().setMode('ace/mode/' + curLanguage);
+	
+	//change the editor's language setting.
 	changeLanguage(editor, curLanguage);
 	editor.setValue($('#' + curLanguage + '-running-code').val(), -1);
+
+	//modify the edit test button if necessary
+	var editTestButton = document.getElementById('edit-test-button');
+	if(editTestButton !== undefined){
+	    editTestButton.href = getNewQueryString(editTestButton.href, curLanguage);
+	}
     });
     
 
@@ -175,4 +181,16 @@ function changeLanguage(editor, curLanguage){
     }else{
 	editor.getSession().setMode("ace/mode/" + curLanguage);
     }
+}
+
+function getNewQueryString(url, language){
+    var indexOfQueryString = url.indexOf("?") + 1;
+    var queryString = url.substring(indexOfQueryString);
+    var uri = url.substring(0, indexOfQueryString);
+    
+    var problemId = queryString.substring(queryString.indexOf("&"));
+
+    var newUrl = uri + "language_name=" + language + problemId;
+    return newUrl;
+
 }

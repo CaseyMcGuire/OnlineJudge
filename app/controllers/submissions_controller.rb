@@ -29,6 +29,7 @@ class SubmissionsController < ApplicationController
                                     :status => status
                                     )
     
+    #should probably make a post request here.
     # incompletes = Submission.where(completed: false)
 
     respond_to do |format|

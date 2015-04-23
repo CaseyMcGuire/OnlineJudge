@@ -40,7 +40,7 @@
 	    <div class="well">
 		<div class="row">
 	    <div class="col-md-6">
-		<%= link_to test_path(:problem_id => params[:id]), :class => "btn btn-default", :id => "#{@cur_language.id}", method: :get do %>
+		<%= link_to find_test_path(:problem_id => params[:id], :language_name => @cur_language.name), :class => "btn btn-default", :id => "edit-test-button", method: :get do %>
 		    Edit Test
 		<% end %>
 	    </div>

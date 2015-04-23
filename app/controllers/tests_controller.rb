@@ -2,7 +2,7 @@ class TestsController < ApplicationController
 
   #need to authenticate admin
   before_action :authenticate_admin!  
-  before_action :valid_params?, except: [:index, :edit]
+  before_action :valid_params?, except: [:index, :edit, :find]
 
   def index
     @languages = Language.all
@@ -78,6 +78,22 @@ class TestsController < ApplicationController
     flash[:notice] = "Test updated"
     redirect_to tests_path
     
+  end
+
+  def find
+    if params[:problem_id] != nil && params[:language_name] != nil
+      language = Language.find_by(:name => params[:language_name])
+      test = Test.find_by(:problem_id => params[:problem_id], :language_id => language.try(:id))
+      
+      if test == nil
+        redirect_to tests_path
+      else
+        redirect_to edit_test_path(test.id)
+      end
+
+    else
+      redirect_to root_path
+    end
   end
 
   private

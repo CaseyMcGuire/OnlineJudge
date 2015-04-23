@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
 
   resources :problems, :tests, :results, :languages, :statuses
+  
+  get 'test/find', to: 'tests#find', as: 'find_test'
 
   #submissions controller
   post '/submission', to: 'submissions#create'

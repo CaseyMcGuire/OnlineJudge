@@ -12,9 +12,6 @@ class ResultsController < ApplicationController
   end
 
   def update
-    puts "================="
-    puts params
-    puts "================"
     Result.find(params[:id]).update(
                                     :expected_result => params[:expected_result],
                                     :input => params[:input],
@@ -33,9 +30,7 @@ class ResultsController < ApplicationController
   end
 
   def create
-    puts "==================="
-    puts params
-    puts"===================="
+    
     Result.new(
               :problem_id => params[:problem_id],
                :expected_result => params[:expected_result],
