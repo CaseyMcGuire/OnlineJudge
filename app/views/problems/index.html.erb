@@ -16,10 +16,10 @@
     </div>
 <!-- problem table -->
     <table class="table table-striped table-bordered">
-	<% @problems.each do |problem| %>
+	<% @problems.each_with_index do |problem, i| %>
 	<tr>	 
 	    <td>
-		<%=problem.id%>
+		<%= i %>
 	    </td>
 	    <td>
 		<%= link_to problem_path(problem), method: :get do %>
@@ -33,6 +33,9 @@
 		<% if admin? %>
 		    <td>
 			<%= link_to "Edit", edit_problem_path(problem), :class => "btn btn-info btn-sm", method: :get %>
+		    </td>
+		    <td>
+			<%= link_to "Delete", problem_path(problem), :class => "btn btn-danger btn-sm",  method: :delete, data:{ :confirm => 'Are you sure?'} %>
 		    </td>
 		    <!-- Also want to allow admin to destroy -->
 		<% end %>

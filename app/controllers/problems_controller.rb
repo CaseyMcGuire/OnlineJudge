@@ -91,6 +91,8 @@ class ProblemsController < ApplicationController
   end
 
   def destroy
+  #  Problem.find(params[:id]).destroy
+    redirect_to problems_path
   end
 
 

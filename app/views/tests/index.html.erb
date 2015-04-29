@@ -17,7 +17,7 @@
 	<%@problems.each do |problem| %>
 	    <tr>
 		<td><%=problem.id%> </td>
-		<td><%=problem.name%></td>
+		<td><%=link_to problem.name, problem_path(problem.id) %></td>
 		<%@languages.each do |language| %>
 		    <% if test_exists?(problem.id, language.id) %>
 			<td>
