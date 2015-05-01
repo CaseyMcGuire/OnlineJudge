@@ -17,6 +17,12 @@ class SubmissionsController < ApplicationController
 
   def create
     #puts params
+    #hax
+    if current_user.email != "caseyjaymcguire@gmail.com"
+      if current_user.email != "caseymcguire90@gmail.com"
+        redirect_to root_path
+      end
+    end
     problem = Problem.find(params[:problem_id])
     language = (Language.find_by name: params[:language])
     status = (Status.find_by name: 'Pending')
