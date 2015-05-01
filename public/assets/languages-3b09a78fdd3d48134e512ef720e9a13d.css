@@ -1,0 +1,15 @@
+/* line 4, /home/caseymcguire/Desktop/Projects/CS440/OnlineJudge/app/assets/stylesheets/languages.css.scss */
+.language-form {
+  text-align: center;
+  border-radius: 2px;
+  background: #f4f4f4;
+  border: 2px solid #d1d1d1;
+  width: 500px;
+  height: 150px;
+  margin: 0 auto;
+}
+
+/* line 14, /home/caseymcguire/Desktop/Projects/CS440/OnlineJudge/app/assets/stylesheets/languages.css.scss */
+.language-container {
+  text-align: center;
+}

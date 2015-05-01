@@ -6,19 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
-problems = [
-            {
-              :name => "Print 'Hello World'",
-              :description => "Print the string 'Hello World' to Standard Out."
-            }
-
-]
-
-problems.each do |problem|
-  Problem.create!(problem)
-end
-
 statuses = [
             {
               :name => "Pending"
@@ -32,7 +19,7 @@ statuses = [
             {
               :name => "Failure"
             }
-]
+           ]
 
 statuses.each do |status|
   Status.create!(status)
@@ -41,6 +28,12 @@ end
 languages = [
              {
                :name => "java"
+             },
+             {
+               :name => "c"
+             },
+             {
+               :name => "c++"
              },
              {
                :name => "python"
@@ -52,22 +45,10 @@ languages = [
                :name => "haskell"
              },
              {
-               :name => "clojure"
-             },
-             {
-               :name => "scala"
-             },
-             {
-               :name => "erlang"
-             },
-             {
                :name => "ocaml"
              },
              {
                :name => "go"
-             },
-             {
-               :name => "prolog"
              }
             ]
 
