@@ -1,22 +1,42 @@
-<div class="container">
-<h2>Editing the result for </h2>
+<div class="container-fluid">
+    <div class="well">
+	<h2>Creating the result for <small><%= @problem.name%></small></h2>
+    </div>
 
-<h4>This is where the expected output of standard out will be. The user will not see this.</h4>
-<div class="result-editor" id="expected-result-editor">
-</div>
-
-<h4>This is where the input to standard in will go in the problem is a contest problem. The user will not see this.</h4>
-<div class="result-editor" id="input-editor">
+    <div class="jumbotron">
+	<blockquote>
+	    <h4>
+		This is where the input to standard in will go in the problem is a contest problem. The user will not see this.
+	    </h4>
+	</blockquote>
     
+    <div class="result-editor" id="input-editor">
+	
+    </div>
 </div>
 
-<h4>This is where sample input will go. The user will see this.</h4>
+<div class="jumbotron">
+    <blockquote>
+    <h4>This is where the expected output of standard out will be. The user will not see this.</h4>
+    </blockquote>
 
-<div class="result-editor" id="sample-input-editor"></div>
+    <div class="result-editor" id="expected-result-editor">
+    </div>  
+</div>
+
+<div class="jumbotron">
+    <blockquote>
+    <h4>This is where sample input will go. The user will see this.</h4>
+    </blockquote>
+    <div class="result-editor" id="sample-input-editor"></div>
+</div>
+
+<div class="jumbotron">
+    <blockquote>
 <h4>This is where sample output will go. The user will see this.</h4>
-
+    </blockquote>
 <div class="result-editor" id="sample-output-editor"></div>
-
+</div>
 
 
 <%= form_tag results_path, :method => "post" do%>
@@ -25,7 +45,7 @@
     <input name="expected_result" type="hidden" id="expected-result" value="">
    <input name="sample_input" type="hidden" id="sample_input" value="">
     <input name="sample_output" type="hidden" id="sample_output" value=""> 
-    <input type="submit" class="btn btn-primary" value="Create">
+    <input type="submit" class="btn btn-primary btn-block" value="Create">
 <% end %>
 
 </div>

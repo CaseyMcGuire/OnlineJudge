@@ -21,11 +21,11 @@
 	<!-- end links  -->
 	<% if !user_signed_in? %>
 	    <div class="navbar-right">
-		<%= link_to new_user_session_path, :class => "btn btn-default" do %>
+		<%= link_to new_user_session_path, :class => "btn btn-default top-button" do %>
 		   Log In
 		<% end %>
 	    
-		<%= link_to new_user_registration_path, :class => "btn btn-primary" do %>
+		<%= link_to new_user_registration_path, :class => "btn btn-primary top-button" do %>
 		  Sign up
 		<% end %>
 	    </div>

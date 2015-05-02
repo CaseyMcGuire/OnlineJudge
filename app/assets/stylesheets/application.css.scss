@@ -16,6 +16,14 @@ p:empty{
     display:none;
 }
 
+.notice{
+    width : 70%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
+    font-weight: bold;
+}
+
 .logout-button{
     margin-top: 5px;
     margin-right: 5px;
@@ -27,3 +35,6 @@ p:empty{
     font-weight : bold;
 }
     
+.top-button{
+    margin-top: 6px;
+}
