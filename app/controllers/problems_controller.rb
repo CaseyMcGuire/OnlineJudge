@@ -71,7 +71,6 @@ class ProblemsController < ApplicationController
               ).save
     flash[:notice] = "Problem successfully created"
     redirect_to problems_path
-    
   end
 
   

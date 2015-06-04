@@ -13,5 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require ace/ace
+//= require ace/worker-html
+//= require ace/theme-monokai
+//= require ace/mode-python
+//= require ace/mode-ruby
+//= require ace/mode-java
+//= require ace/mode-c_cpp
 //= require bootstrap
 
